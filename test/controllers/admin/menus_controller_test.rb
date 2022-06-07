@@ -1,0 +1,13 @@
+require "test_helper"
+
+class Admin::MenusControllerTest < ActionDispatch::IntegrationTest
+  test "should get new" do
+    get admin_menus_new_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get admin_menus_show_url
+    assert_response :success
+  end
+end
