@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   }
   
   root to: 'public/homes#top'#top
-  
+  get 'about' => 'public/homes#about'
  
   scope module: :public do
-    get 'about'
     get 'bookmark' => 'bookmarks#index'#お気に入り一覧
     resources :menus, only: [:new, :index, :show, :edit, :create, :update] do #メニュー機能
       resource :menu_items, only: [:edit, :create, :update]#メニューアイテム関連機能
@@ -22,9 +21,11 @@ Rails.application.routes.draw do
       resource :bookmarks, only: [:create, :destroy]#お気に入り機能
     end
     resources :hearings, only: [:new, :show, :create]#顧客診断機能
-    resources :customers, only: [:show, :edit, :update]#顧客会員情報機能
-    get 'customers/quit' => 'customers#quit'#退会確認ページ
+    resource :customers, only: [:show, :update]#顧客会員情報機能
+    get 'customer/edit'  => 'customers#edit'
     patch 'customers/withdraw' => 'customers#withdraw'#退会処理
+    get 'customers/quit' => 'customers#quit'#退会確認ページ
+    
   end
   
   namespace :admin do

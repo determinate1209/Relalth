@@ -1,2 +1,9 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<h3><%= current_customer.last_name %><%= current_customer.first_name %>さんの会員情報</h3>
+<p>（姓）:<%= current_customer.last_name %></p>
+<p>（名）:<%= current_customer.first_name %></p>
+<p>ユーザーネーム:<%= current_customer.user_name %></p>
+<p>メールアドレス:<%= current_customer.email %></p>
+<p>会員ステータス:<%= current_customer.is_deleted %></p>
+
+
+<%= link_to "編集", customer_edit_path %>
