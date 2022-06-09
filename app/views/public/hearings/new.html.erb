@@ -1,2 +1,23 @@
-<h1>Public::Hearings#new</h1>
-<p>Find me in app/views/public/hearings/new.html.erb</p>
+<h3>診断スタート</h3>
+<h5>
+  質問１つにつきどちらか1つお選びください！<br />
+  
+<%= form_with model: @hearing, url: hearings_path do |f| %>
+  <p>Question1. 身体でしんどいのは？</p>
+    <label><%= f.radio_button :question1, 1, checked: true %>肩</label>
+    <label><%= f.radio_button :question1, 2 %>腰</label>
+    
+  <p>Question2. 症状はどちらかというと？</p>
+    <label><%= f.radio_button :question2, 1, checked: true %>痛み</label>
+    <label><%= f.radio_button :question2, 2 %>だるさ（痛み以外）</label>
+    
+  <p>Question2. いつから？</p>
+    <label><%= f.radio_button :question3, 1, checked: true  %>1ヶ月以内（直近）</label>
+    <label><%= f.radio_button :question3, 2 %>1ヶ月より前（かなり前）</label>
+    
+  <p>Question2. 身体、顔がむくみやすいですか？</p>
+    <label><%= f.radio_button :question4, 1, checked: true %>あまり（むくみがわからない）</label>
+    <label><%= f.radio_button :question4, 2 %>よく、むくむ</label><br />
+  
+  <%= f.submit "結果を見る"%>
+<% end %>
