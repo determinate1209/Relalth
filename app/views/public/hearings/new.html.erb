@@ -1,2 +1,23 @@
-<h1>Public::Hearings#new</h1>
-<p>Find me in app/views/public/hearings/new.html.erb</p>
+<h3>診断スタート</h3>
+<h5>
+  質問１つにつきどちらか1つお選びください！<br />
+  
+<%= form_with model: @hearing, url: hearings_path do |f| %>
+  <p>Question1. 身体でしんどいのは？</p>
+    <p><%= f.check_box :question, {multiple: true}, "1", nil %>肩</p>
+    <p><%= f.check_box :question, {multiple: true}, "2", nil %>腰</p>
+    
+  <p>Question2. 症状はどちらかというと？</p>
+    <p><%= f.check_box :question, {multiple: true}, "1", nil %>痛み</p>
+    <p><%= f.check_box :question, {multiple: true}, "2", nil %>だるさ（痛み以外）</p>
+    
+  <p>Question2. いつから？</p>
+    <p><%= f.check_box :question, {multiple: true}, "1", nil %>1ヶ月以内（直近）</p>
+    <p><%= f.check_box :question, {multiple: true}, "2", nil %>1ヶ月より前（かなり前）</p>
+    
+  <p>Question2. 身体、顔がむくみやすいですか？</p>
+    <p><%= f.check_box :question, {multiple: true}, "1", nil %>あまり（むくみがわからない）</p>
+    <p><%= f.check_box :question, {multiple: true}, "2", nil %>よく、むくむ</p>
+  
+  <%= f.submit "結果を見る"%>
+<% end %>
