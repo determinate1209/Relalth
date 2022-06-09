@@ -1,43 +1,51 @@
 <h3>診断結果</h3>
-<% if @hearing.question == "1111" %>
-  最近になって、肩の痛みが発生した、あなたにおすすめのプランです。
-  動かすと痛い場合<br />
-  何もしなくても痛い場合
-<% elsif @hearing.question == "1112" %>
-  最近になり、肩が痛く、むくみが発生しやすい、あなたにおすすめのプランです。
-  動かすと痛い場合<br />
-  何もしなくても痛い場合 
-<% elsif @hearing.question == "1121" %>
+<% if @hearing.question1 == 1 && @hearing.question2 == 1 && @hearing.question3 == 1 && @hearing.question4 == 1 %>
+  最近になって、肩の痛みが発生した、あなたにおすすめのプランです。<br />
+  
+  
+<% elsif @hearing.question1 == 1 && @hearing.question2 == 1 && @hearing.question3 == 1 && @hearing.question4 == 2 %>
+  最近になり、肩が痛く、むくみが発生しやすい、あなたにおすすめのプランです。<br />
+  
+<% elsif @hearing.question1 == 1 && @hearing.question2 == 1 && @hearing.question3 == 2 && @hearing.question4 == 1 %>
   ずっと前から、肩が痛い、あなたにおすすめのプランです。
-<% elsif @hearing.question == "1122" %>
+  
+<% elsif @hearing.question1 == 1 && @hearing.question2 == 1 && @hearing.question3 == 2 && @hearing.question4 == 2 %>
   ずっと前から、肩が痛く、むくみが発生しやすい、あなたにおすすめのプランです。
-<% elsif @hearing.question == "1211" %>
+  
+<% elsif @hearing.question1 == 1 && @hearing.question2 == 2 && @hearing.question3 == 1 && @hearing.question4 == 1 %>
   最近、肩にだるさが、出てきたあなたにおすすめのプランです。
-<% elsif @hearing.question == "1212" %>
+  
+<% elsif @hearing.question1 == 1 && @hearing.question2 == 2 && @hearing.question3 == 1 && @hearing.question4 == 2 %>
   最近、肩にだるさが出てきて、むくみやすい、あなたにおすすめのプランです。
-<% elsif @hearing.question == "1221" %>
+  
+<% elsif @hearing.question1 == 1 && @hearing.question2 == 2 && @hearing.question3 == 2 && @hearing.question4 == 1 %>
   長い間、肩がだるい、あなたにおすすめなプランです。
-<% elsif @hearing.question == "1222" %>
+  
+<% elsif @hearing.question1 == 1 && @hearing.question2 == 2 && @hearing.question3 == 2 && @hearing.question4 == 2 %>
   長い間、肩だだるく、むくみが発生しやすいあなたにおすすめなプランはこちらです。
-<% elsif @hearing.question == "2111" %>
+  
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 1 && @hearing.question3 == 1 && @hearing.question4 == 1 %>
   最近、腰に痛みが発生したあなたに、おすすめなプランです。
-<% elsif @hearing.question == "2112" %>
+  
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 1 && @hearing.question3 == 1 && @hearing.question4 == 2 %>
   最近、腰に痛み身体がむくみやすいあなたにおすすめなプランです。
-<% elsif @hearing.question == "2121" %>
+  
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 1 && @hearing.question3 == 2 && @hearing.question4 == 1 %>
   ずっと前から腰が痛いあなたに、おすすめなプランです。
-<% elsif @hearing.question == "2211" %>
+  
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 2 && @hearing.question3 == 1 && @hearing.question4 == 1 %>
   最近、腰がだるくなってきた、あなたにおすすめなプランです。
-<% elsif @hearing.question == "2212" %>
-  最近、腰がだるく、むくみが発生しやすいあなたに、おすすめプランです。
-<% elsif @hearing.question == "2221" %>
+  
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 2 && @hearing.question3 == 1 && @hearing.question4 == 2 %>
+  最近、腰がだるく、むくみが発生しやすいあなたにおすすめなプランです。
+  
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 1 && @hearing.question3 == 2 && @hearing.question4 == 2 %>
+  ずっと前から腰が痛く、むくみが発生しやすいあなたに、おすすめプランです。
+  
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 2 && @hearing.question3 == 2 && @hearing.question4 == 1 %>
 　ずっと前から腰にだるさがあるあなたに、おすすめなプランです。
-<% elsif @hearing.question == "2222" %>
+　
+<% elsif @hearing.question1 == 2 && @hearing.question2 == 2 && @hearing.question3 == 2 && @hearing.question4 == 2 %>
   ずっと前から腰にだるさがあり、むくみやすいあなたにおすすめなプランです。
-<% else %>
-  正しく計測されませんでした。大変申し訳ございません。<br />
-  お手数をおかけしますが、下記の事項をご確認の上、もう一度、お試しください。<br />
-  ・4つの質問に答えられているか。
-  ・１つの質問に対し、選択しているのは1つであるか。
-  
-  
+
 <% end %>

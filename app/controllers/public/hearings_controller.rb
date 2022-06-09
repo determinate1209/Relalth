@@ -9,7 +9,6 @@ class Public::HearingsController < ApplicationController
   
   def create
     @hearing = Hearing.new(hearing_params)
-    params[:hearing][:question] ? @hearing.question = params[:hearing][:question].join("") : false
     if @hearing.save
       redirect_to hearing_path(@hearing.id)
     else
@@ -20,6 +19,6 @@ class Public::HearingsController < ApplicationController
   private
   
   def hearing_params
-    params.require(:hearing).permit(:id, question: [])
+    params.require(:hearing).permit(:question1, :question2, :question3, :question4)
   end
 end

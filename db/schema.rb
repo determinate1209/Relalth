@@ -84,7 +84,10 @@ ActiveRecord::Schema.define(version: 2022_06_08_093941) do
   end
 
   create_table "hearings", force: :cascade do |t|
-    t.string "question"
+    t.integer "question1"
+    t.integer "question2"
+    t.integer "question3"
+    t.integer "question4"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

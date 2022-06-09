@@ -4,20 +4,20 @@
   
 <%= form_with model: @hearing, url: hearings_path do |f| %>
   <p>Question1. 身体でしんどいのは？</p>
-    <p><%= f.check_box :question, {multiple: true}, "1", nil %>肩</p>
-    <p><%= f.check_box :question, {multiple: true}, "2", nil %>腰</p>
+    <label><%= f.radio_button :question1, 1, checked: true %>肩</label>
+    <label><%= f.radio_button :question1, 2 %>腰</label>
     
   <p>Question2. 症状はどちらかというと？</p>
-    <p><%= f.check_box :question, {multiple: true}, "1", nil %>痛み</p>
-    <p><%= f.check_box :question, {multiple: true}, "2", nil %>だるさ（痛み以外）</p>
+    <label><%= f.radio_button :question2, 1, checked: true %>痛み</label>
+    <label><%= f.radio_button :question2, 2 %>だるさ（痛み以外）</label>
     
   <p>Question2. いつから？</p>
-    <p><%= f.check_box :question, {multiple: true}, "1", nil %>1ヶ月以内（直近）</p>
-    <p><%= f.check_box :question, {multiple: true}, "2", nil %>1ヶ月より前（かなり前）</p>
+    <label><%= f.radio_button :question3, 1, checked: true  %>1ヶ月以内（直近）</label>
+    <label><%= f.radio_button :question3, 2 %>1ヶ月より前（かなり前）</label>
     
   <p>Question2. 身体、顔がむくみやすいですか？</p>
-    <p><%= f.check_box :question, {multiple: true}, "1", nil %>あまり（むくみがわからない）</p>
-    <p><%= f.check_box :question, {multiple: true}, "2", nil %>よく、むくむ</p>
+    <label><%= f.radio_button :question4, 1, checked: true %>あまり（むくみがわからない）</label>
+    <label><%= f.radio_button :question4, 2 %>よく、むくむ</label><br />
   
   <%= f.submit "結果を見る"%>
 <% end %>
