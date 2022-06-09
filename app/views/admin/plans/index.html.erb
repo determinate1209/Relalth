@@ -1,2 +1,16 @@
-<h1>Admin::Plans#index</h1>
-<p>Find me in app/views/admin/plans/index.html.erb</p>
+<h3>プランを作成</h3>
+<%= form_with model: @plan, url: admin_plans_path do |f| %>
+ <%= f.label "プラン名" %><br />
+ <%= f.text_area :name %><br />
+ <%= f.submit "プランを作成" %>
+<% end %>
+
+<h3>プラン一覧</h3>
+<% @plans.each do |plan| %>
+  <%= link_to admin_plan_path(plan.id) do %>
+    <%= plan.name %>
+  <% end %>
+  
+  <%= link_to "編集する", edit_admin_plan_path(plan.id) %><br />
+  
+<% end %>
