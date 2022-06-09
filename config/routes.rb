@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       resource :comments, only: [:create, :destroy]#コメント機能
       resource :bookmarks, only: [:create, :destroy]#お気に入り機能
     end
+    
+    resources :plans, only: [:show]
+    
     resources :hearings, only: [:new, :show, :create]#顧客診断機能
     resource :customers, only: [:show, :update]#顧客会員情報機能
     get 'customer/edit'  => 'customers#edit'
@@ -31,7 +34,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :comments, only: [:index, :destroy] #管理者コメント一覧機能
     resources :menus, only: [:new, :show, :create, :edit, :update, :destroy]#管理者メニュー機能
-    resources :plans, only: [:index, :show, :edit, :create, :update, :destroy]#管理者プラン作成機能
+    resources :plans, only: [:index, :show, :edit, :create, :update]#管理者プラン作成機能
     resources :customers, only: [:index, :show, :edit, :update]#管理者会員情報機能
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
