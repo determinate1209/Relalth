@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_093941) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.integer "plan_id"
+    t.integer "plan_id", default: 0
     t.integer "customer_id"
     t.string "name"
     t.string "description"

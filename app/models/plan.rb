@@ -1,3 +1,3 @@
 class Plan < ApplicationRecord
-  has_many :menus, dependent: :destroy
+  has_many :menus
 end

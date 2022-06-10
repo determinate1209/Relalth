@@ -16,10 +16,11 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'bookmark' => 'bookmarks#index'#お気に入り一覧
     resources :menus, only: [:new, :index, :show, :edit, :create, :update] do #メニュー機能
-      resource :menu_items, only: [:edit, :create, :update]#メニューアイテム関連機能
+      resources :menu_items, only: [:edit, :create, :update]#メニューアイテム関連機能
       resource :comments, only: [:create, :destroy]#コメント機能
       resource :bookmarks, only: [:create, :destroy]#お気に入り機能
     end
+    
     
     resources :plans, only: [:show]
     

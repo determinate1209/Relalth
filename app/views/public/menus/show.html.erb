@@ -1,2 +1,27 @@
-<h1>Public::Menus#show</h1>
-<p>Find me in app/views/public/menus/show.html.erb</p>
+<h3><%= @menu.name %></h3>
+
+
+<%= form_with model: [@menu, @menu_item] do |f| %>
+
+
+  <%= f.label "ストレッチの説明" %><br />
+  <%= f.text_area :description %><br />
+  <%= f.label "ストレッチ画像" %>
+  <%= f.file_field :image, accept: "image/*" %>
+  
+  <%= f.label "手順" %>
+  <%= f.select :stretch_number,*[1..10] %>
+  
+  <%= f.submit "メニュー内容を追加" %>
+<% end %>
+
+  
+<% @menu.menu_items.each do |menu_item| %>
+  <%= image_tag menu_item.get_image(100, 100) %><br />
+  
+  
+  <%= menu_item.description %><br />
+<% end %>
+  
+  
+  
