@@ -1,5 +1,5 @@
-<h3>メニュー作成</h3>
-<%= form_with model: @menu, url: menus_path do |f| %>
+<h3>メニュー編集</h3>
+<%= form_with model: @menu, url: admin_menu_path, method: :patch do |f| %>
  <%= f.label "メニュー名" %><br />
  <%= f.text_field :name %><br />
  
@@ -9,6 +9,6 @@
  <%= f.label :プラン %><br />
  <%= f.select :plan_id, options_from_collection_for_select(Plan.all, :id, :name), { prompt: '選択してください' } %><br />
  
- <%= f.submit "メニューを作成" %>
+ <%= f.submit "メニューを編集" %>
  
 <% end %>

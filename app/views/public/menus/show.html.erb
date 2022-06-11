@@ -1,2 +1,33 @@
-<h1>Public::Menus#show</h1>
-<p>Find me in app/views/public/menus/show.html.erb</p>
+<h3><%= @menu.name %></h3>
+
+<% if @menu.customer == current_customer %>
+  <%= form_with model: [@menu, @menu_item] do |f| %>
+  
+     <%= f.label "ストレッチ画像" %><br />
+    <%= f.file_field :image, accept: "image/*" %><br />
+    
+    <%= f.label "ストレッチの説明" %><br />
+    <%= f.text_area :description %><br />
+    
+    <%= f.label "手順" %>
+    <%= f.select :stretch_number,*[1..10] %><br />
+    
+    <%= f.submit "メニュー内容を追加" %>
+  <% end %>
+<% end %>
+  
+<% @menu.menu_items.each do |menu_item| %>
+  <%= image_tag menu_item.get_image(100, 100) %><br />
+  
+  
+  <%= menu_item.description %><br />
+  
+  <% if @menu.customer == current_customer %>
+    <%= link_to "編集する", edit_menu_menu_item_path(menu_item.menu_id, menu_item.id) %>
+    <%= link_to "削除", menu_menu_item_path(menu_item.menu_id, menu_item.id), method: :delete,"data-confirm" => "本当に消しますか？" %><br />
+    
+  <% end %>
+<% end %>
+  
+  
+  
