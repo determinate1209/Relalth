@@ -13,4 +13,11 @@
     
 <% end %>
   
+<h3><%= @menu.comments.count %>件のコメント</h3>
+<% @menu.comments.each do |comment| %>
+  <%= comment.customer.user_name %>
+  <%= comment.comment %>
+  <%= link_to "削除", admin_menu_comment_path(comment.menu_id,comment.id), method: :delete, "data-confirm" => "不適切とみなし削除しますか？" %><br />
   
+  
+<% end %>
