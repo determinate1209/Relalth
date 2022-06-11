@@ -1,8 +1,7 @@
 <h3>メニュー編集</h3>
-<%= form_with model: @menu, url: menu_path, method: :patch do |f| %>
-
+<%= form_with model: @menu, url: admin_menu_path, method: :patch do |f| %>
  <%= f.label "メニュー名" %><br />
- <%= f.text_field :name, autocomplete: "name" %><br />
+ <%= f.text_field :name %><br />
  
  <%= f.label "メニュー説明" %><br />
  <%= f.text_area :description %><br />

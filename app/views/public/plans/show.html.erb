@@ -1,1 +1,10 @@
-<%= @plan.name %>メニュー
+<h3><%= @plan.name %>メニュー</h3>
+
+<% @plan.menus.each do |menu| %>
+  <%=link_to menu_path(menu.id) do %>
+    <%= menu.name %>
+  <% end %>
+  
+  <%= menu.description %><br />
+  
+<% end %>

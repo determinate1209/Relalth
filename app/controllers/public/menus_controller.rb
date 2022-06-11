@@ -6,11 +6,10 @@ class Public::MenusController < ApplicationController
   def create
     @plan = Plan.all
     @menu = Menu.new(menu_params)
-    @menu.customer_id = current_customer.id #誰が投稿したかわかるように
+    @menu.customer_id = current_customer.id #投稿者が編集、削除できるように
     
     @menu.save
     redirect_to menus_path
-    
   end
   
   
@@ -26,7 +25,7 @@ class Public::MenusController < ApplicationController
   end
 
   def edit
-    @menus = Menu.find(params[:id])
+    @menu = Menu.find(params[:id])
   end
   
   def update
@@ -34,6 +33,13 @@ class Public::MenusController < ApplicationController
     @menu.update(menu_params)
     redirect_to menu_path(@menu)
   end
+  
+  def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+    redirect_to request.referer
+  end
+  
   
   private
   

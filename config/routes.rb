@@ -15,8 +15,8 @@ Rails.application.routes.draw do
  
   scope module: :public do
     get 'bookmark' => 'bookmarks#index'#お気に入り一覧
-    resources :menus, only: [:new, :index, :show, :edit, :create, :update] do #メニュー機能
-      resources :menu_items, only: [:edit, :create, :update]#メニューアイテム関連機能
+    resources :menus, only: [:new, :index, :show, :edit, :create, :update, :destroy] do #メニュー機能
+      resources :menu_items, only: [:edit, :create, :update, :destroy]#メニューアイテム関連機能
       resource :comments, only: [:create, :destroy]#コメント機能
       resource :bookmarks, only: [:create, :destroy]#お気に入り機能
     end
@@ -34,9 +34,13 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :comments, only: [:index, :destroy] #管理者コメント一覧機能
-    resources :menus, only: [:new, :show, :create, :edit, :update, :destroy]#管理者メニュー機能
+    resources :menus, only: [:show, :edit, :update, :destroy, :index]do#管理者メニュー機能(一覧、詳細、削除、所属するプランを変更）
+      resources :menu_items, only: [:destroy]#不適切な投稿を削除できるように
+      resources :comments, only: [:index, :destroy] #管理者コメント一覧機能
+    end
     resources :plans, only: [:index, :show, :edit, :create, :update]#管理者プラン作成機能
     resources :customers, only: [:index, :show, :edit, :update]#管理者会員情報機能
+    
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

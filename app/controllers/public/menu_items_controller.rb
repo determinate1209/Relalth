@@ -11,6 +11,21 @@ class Public::MenuItemsController < ApplicationController
     redirect_to request.referer
   end
   
+  def update
+    menu = Menu.find(params[:menu_id])
+    @menu_item = MenuItem.find(params[:id])
+    @menu_item.update(menu_item_params)
+    redirect_to menu_path(menu.id)
+  end
+  
+  def destroy
+    menu = Menu.find(params[:menu_id])
+    @menu_item = MenuItem.find(params[:id])
+    @menu_item.destroy
+    redirect_to request.referer
+    
+  end
+   
   private
   
   def menu_item_params
