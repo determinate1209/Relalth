@@ -1,9 +1,20 @@
 <h3><%= @customer.last_name + @customer.first_name %>さんの会員詳細ページ</h3>
 
 
-<%= @customer.last_name + @customer.first_name %>
-<%= @customer.user_name %>
-<%= @customer.email %>
-<%= @customer.is_deleted %>
+<%= @customer.last_name + @customer.first_name %><br />
+<%= @customer.user_name %><br />
+<%= @customer.email %><br />
+<%= @customer.is_deleted %><br />
 
-<%= link_to "編集する", edit_admin_customer_path(@customer) %>
+<%= link_to "編集する", edit_admin_customer_path(@customer) %><br />
+
+<h3>投稿したメニュー</h3>
+<% @customer.menus.each do |menu| %>
+  <%= link_to menu_path(menu.id) do %>
+    <%= menu.name %>
+  <% end %>
+  <%= menu.description %>
+  <%= link_to "削除", admin_menu_path(menu.id), method: :delete,  "data-confirm" => "不適切とみなし削除しますか？" %><br />
+<% end %>
+
+  

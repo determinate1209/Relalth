@@ -1,7 +1,11 @@
 class Public::CustomersController < ApplicationController
   def show
-    
+    bookmark= Bookmark.where(customer_id: current_customer.id
+    ).pluck(:menu_id)
+    @bookmark_menu = Menu.find(bookmark)
   end
+  
+  
 
   def edit
     @customer = Customer.find(current_customer.id)
