@@ -6,4 +6,22 @@
 <p>会員ステータス:<%= current_customer.is_deleted %></p>
 
 
-<%= link_to "編集", customer_edit_path %>
+<%= link_to "編集", customer_edit_path %><br />
+<h3>お気に入り一覧</h3>
+<% @bookmark_menu.each do |menu| %>
+  <%= link_to menu_path(menu.id) do %>
+    <%= menu.name %>
+  <% end %>
+  
+  <%= menu.description %><br />
+<% end %>
+
+<h3>投稿したメニュー</h3>
+<% current_customer.menus.each do |menu| %>
+  <%= link_to menu_path(menu.id) do %>
+    <%= menu.name %>
+  <% end %>
+  <%= menu.description %>
+  <%= link_to "編集", edit_menu_path(menu.id) 
+  <%= link_to "削除", menu_path(menu.id), method: :delete %>
+<% end %>

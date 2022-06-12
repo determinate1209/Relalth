@@ -1,0 +1,11 @@
+<h2>検索結果</h2>
+  <ul>
+    <% @menus.each do |menu| %>
+      <li>
+        <%= link_to menu_path(menu.id) do %>
+          <%= menu.name %>
+        <% end %><br />
+        <p><%= menu.description %></p>
+      </li>
+    <% end %>
+  </ul>

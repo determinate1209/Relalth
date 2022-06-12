@@ -1,7 +1,13 @@
 class Admin::MenusController < ApplicationController
 
   def index
-    @menus = Menu.all
+    @plans = Plan.all
+    if params[:plan_id]
+      @plan = Plan.find(params[:plan_id])
+      @menus = @plan.menus
+    else
+      @menus = Menu.all
+    end
   end
 
   def show
@@ -24,6 +30,15 @@ class Admin::MenusController < ApplicationController
     @menu = Menu.find(params[:id])
     @menu.destroy
     redirect_to request.referer
+  end
+  
+  def search
+    if params[:name].present?
+      @menus = Menu.where('name LIKE(?) OR description LIKE(?)', "%#{params[:name]}%", "%#{params[:name]}%")
+    else
+      @menus = Menu.none
+      
+    end
   end
   
   
