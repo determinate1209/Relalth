@@ -1,0 +1,20 @@
+ ja:
+    enums:
+      menu:
+        plan_name:
+          leg_pain: "脚の痛み"
+          leg_fatigue: "脚の疲労感"
+          knee_pain: "膝の痛み"
+          knee_fatigue: "膝の疲労感"
+          waist_pain: "腰の痛み"
+          waist_fatigue: "腰の疲労感"
+          shoulder_pain: "肩の痛み"
+          shoulder_fatigue: "肩の疲労感"
+          body_pain: "全身の痛み"
+          body_fatigue: "全身の疲労感"
+        site_name:
+          neck: "首"
+          shoulder: "肩"
+          waist: "腰"
+          knee: "膝"
+          leg: "脚"

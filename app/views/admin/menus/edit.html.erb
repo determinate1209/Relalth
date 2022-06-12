@@ -7,10 +7,10 @@
  <%= f.text_area :description %><br />
  
  <%= f.label :どの診断結果に入れたいか %><br />
- <%= f.select :plan_name, Menu.plan_names.keys.map { |k| [t("enums.menu.plan_name.#{k}"), k] } %><br />
+ <%= f.select :plan_name, Menu.plan_names_i18n.keys.map { |k| [t("enums.menu.plan_name.#{k}"), k] } %><br />
  
  <%= f.label :部位 %><br />
- <%= f.select :site_name, Menu.site_names.keys.map { |k| [t("enums.menu.site_name.#{k}"), k] } %><br />
+ <%= f.select :site_name, Menu.site_names_i18n.keys.map { |k| [t("enums.menu.site_name.#{k}"), k] } %><br />
  
  
  <%= f.submit "メニューを編集" %>
