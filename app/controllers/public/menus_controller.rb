@@ -4,7 +4,6 @@ class Public::MenusController < ApplicationController
   end
   
   def create
-    @plan = Plan.all
     @menu = Menu.new(menu_params)
     @menu.customer_id = current_customer.id #投稿者が編集、削除できるように
     
@@ -15,13 +14,16 @@ class Public::MenusController < ApplicationController
   
 
   def index
-    @plans = Plan.all
-    if params[:plan_id]
-      @plan = Plan.find(params[:plan_id])
-      @menus = @plan.menus
+    if params[:plan_name] == "ichiran"
+      @menus = Menu.all
+    elsif params[:plan_name]
+      @menu_plan_name = Menu.where(plan_name: params[:plan_name])
+      @menus = @menu_plan_name.all
     else
       @menus = Menu.all
     end
+    
+    
   end
 
   def show
@@ -47,6 +49,12 @@ class Public::MenusController < ApplicationController
     redirect_to request.referer
   end
   
+  def diagnosis
+    params[:plan_name]
+      @menu_plan_name = Menu.where(plan_name: params[:plan_name])
+      @menus = @menu_plan_name.all
+  end
+  
   def search
     if params[:name].present?
       @menus = Menu.where('name LIKE(?) OR description LIKE(?)', "%#{params[:name]}%", "%#{params[:name]}%")
@@ -60,7 +68,7 @@ class Public::MenusController < ApplicationController
   private
   
   def menu_params
-    params.require(:menu).permit( :name, :description, :plan_id)
+    params.require(:menu).permit( :name, :description, :plan_name)
   end
   
 end

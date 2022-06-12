@@ -1,14 +1,16 @@
 class Admin::MenusController < ApplicationController
 
   def index
-    @plans = Plan.all
-    if params[:plan_id]
-      @plan = Plan.find(params[:plan_id])
-      @menus = @plan.menus
+    if params[:plan_name] == "ichiran"
+      @menus = Menu.all
+    elsif params[:plan_name]
+      @menu_plan_name = Menu.where(plan_name: params[:plan_name])
+      @menus = @menu_plan_name.all
     else
       @menus = Menu.all
     end
   end
+
 
   def show
     @menu = Menu.find(params[:id])

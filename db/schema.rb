@@ -102,16 +102,16 @@ ActiveRecord::Schema.define(version: 2022_06_08_093941) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.integer "plan_id", default: 0
     t.integer "customer_id"
     t.string "name"
     t.string "description"
+    t.integer "plan_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "plans", force: :cascade do |t|
-    t.string "name"
+    t.integer "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

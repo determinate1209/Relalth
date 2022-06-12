@@ -8,7 +8,7 @@
  <%= f.text_area :description %><br />
  
  <%= f.label :プラン %><br />
- <%= f.select :plan_id, options_from_collection_for_select(Plan.all, :id, :name), { prompt: '選択してください' } %><br />
+ <%= f.select :plan_name, Menu.plan_names.keys.map { |k| [t("enums.menu.plan_name.#{k}"), k] } %><br />
  
  <%= f.submit "メニューを編集" %>
  

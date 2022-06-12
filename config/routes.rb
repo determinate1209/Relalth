@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get 'bookmark' => 'bookmarks#index'#お気に入り一覧
     resources :menus, only: [:new, :index, :show, :edit, :create, :update, :destroy] do #メニュー機能
       get :search, on: :collection#メニュー検索機能
+      get :diagnosis, on: :collection
       resources :menu_items, only: [:edit, :create, :update, :destroy]#メニューアイテム関連機能
       resources :comments, only: [:create, :destroy]#コメント機能
       resource :bookmarks, only: [:create, :destroy]#お気に入り機能

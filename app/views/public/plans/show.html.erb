@@ -1,6 +1,6 @@
-<h3><%= @plan.name %>メニュー</h3>
+<h3><%= @menus.plan_name %>メニュー</h3>
 
-<% @plan.menus.each do |menu| %>
+<% @menus.each do |menu| %>
   <%=link_to menu_path(menu.id) do %>
     <%= menu.name %>
   <% end %>
