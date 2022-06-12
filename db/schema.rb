@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_093941) do
     t.string "name"
     t.string "description"
     t.integer "plan_name"
+    t.integer "site_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

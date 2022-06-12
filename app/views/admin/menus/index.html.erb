@@ -1,11 +1,10 @@
-<h3>ジャンル検索</h3>
+<h3>部位検索</h3>
   <%= form_tag(menus_path, method: :get) do %>
-    <%= select_tag :plan_name, options_for_select({ "一覧" => "ichiran", "脚の痛み" => "leg_pain", "脚の疲労感" => "leg_fatigue",
-                                                    "膝の痛み" => "knee_pain", "膝の疲労感" => "knee_fatigue", "腰の痛み" => "waist_pain",
-                                                    "腰の疲労感" => "waist_fatigue", "肩の痛み" => "shoulder_pain", "肩の疲労感" => "shoulder_fatigue",
-                                                    "全身の痛み" => "body_pain", "全身の疲労感" => "body_fatigue", }) %>
+    <%= select_tag :site_name, options_for_select({ "全身" => "zenshin", "首" => "neck", "肩" => "shoulder",
+                                                    "腰" => "waist", "脚" => "leg", "膝" => "knee"}) %>
     <%= submit_tag '検索する' %>
   <% end %>
+  
 <h3>一覧</h3>
 
 <% @menus.each do |menu| %>

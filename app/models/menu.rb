@@ -15,7 +15,12 @@ class Menu < ApplicationRecord
                     shoulder_fatigue: 7,
                     body_pain: 8,
                     body_fatigue:9}
-               
+                    
+  enum site_name: { neck: 0,
+                    shoulder: 1,
+                    waist: 2,
+                    knee: 3,
+                    leg: 4}
   
   def bookmarked_by?(customer)
     bookmarks.exists?(customer_id: customer.id)

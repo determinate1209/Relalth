@@ -43,7 +43,6 @@ Rails.application.routes.draw do
       resources :menu_items, only: [:destroy]#不適切な投稿を削除できるように
       resources :comments, only: [:index, :destroy] #管理者コメント一覧機能
     end
-    resources :plans, only: [:index, :show, :edit, :create, :update]#管理者プラン作成機能
     resources :customers, only: [:index, :show, :edit, :update]#管理者会員情報機能
     
   end

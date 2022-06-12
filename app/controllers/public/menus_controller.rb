@@ -14,16 +14,14 @@ class Public::MenusController < ApplicationController
   
 
   def index
-    if params[:plan_name] == "ichiran"
+    if params[:site_name] == "zenshin"
       @menus = Menu.all
-    elsif params[:plan_name]
-      @menu_plan_name = Menu.where(plan_name: params[:plan_name])
-      @menus = @menu_plan_name.all
+    elsif params[:site_name]
+      @menu_site_name = Menu.where(site_name: params[:site_name])
+      @menus = @menu_site_name.all
     else
       @menus = Menu.all
     end
-    
-    
   end
 
   def show
@@ -68,7 +66,7 @@ class Public::MenusController < ApplicationController
   private
   
   def menu_params
-    params.require(:menu).permit( :name, :description, :plan_name)
+    params.require(:menu).permit( :name, :description, :plan_name, :site_name)
   end
   
 end
