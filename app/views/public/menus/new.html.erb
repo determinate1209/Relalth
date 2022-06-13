@@ -1,3 +1,5 @@
+<%= render 'layouts/errors', obj: @menu %>
+
 <h3>メニュー作成</h3>
 <%= form_with model: @menu, url: menus_path do |f| %>
  <%= f.label "メニュー名" %><br />

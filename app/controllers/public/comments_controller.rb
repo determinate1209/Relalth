@@ -3,8 +3,12 @@ class Public::CommentsController < ApplicationController
     @menu = Menu.find(params[:menu_id])
     comment = current_customer.comments.new(comment_params)
     comment.menu_id = @menu.id
-    comment.save
+    if comment.save
       
+    else
+      flash[:notice] = "コメント内容を記入してください。"
+      redirect_to menu_path(@menu.id)
+    end
   end
   
   def destroy

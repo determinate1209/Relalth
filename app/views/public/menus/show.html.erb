@@ -1,8 +1,10 @@
+<%= render "layouts/errors", obj: @menu %>
+
 <h3><%= @menu.name %></h3>
 
 <% if @menu.customer == current_customer %>
   <%= link_to "このページの全てを削除する", menu_path(@menu),  method: :delete,
-                                              "data-confirm" => "メニュー、投稿したストレッチ、コメントが全て消えてしまいます。<br />本当に削除しますか？" %>
+                                              "data-confirm" => "メニュー、投稿したストレッチ、コメントが全て消えてしまいます。         本当に削除しますか？" %>
   <%= render "public/menu_items/form", menu: @menu, menu_item: @menu_item %>
 <% end %>
 
@@ -25,5 +27,6 @@
 <% end %>
 
 <div class="comments_area">
+  
   <%= render "public/comments/index", menu: @menu %>
 </div>

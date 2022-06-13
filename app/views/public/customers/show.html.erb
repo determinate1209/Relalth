@@ -21,7 +21,5 @@
   <%= link_to menu_path(menu.id) do %>
     <%= menu.name %>
   <% end %>
-  <%= menu.description %>
-  <%= link_to "編集", edit_menu_path(menu.id) %>
-  <%= link_to "削除", menu_path(menu.id), method: :delete %><br />
+  <%= menu.description %><br />
 <% end %>

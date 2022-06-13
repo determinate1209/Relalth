@@ -22,6 +22,9 @@ class Menu < ApplicationRecord
                     knee: 3,
                     leg: 4}
   
+  validates :name, presence: true
+  validates :description, presence: true
+  
   def bookmarked_by?(customer)
     bookmarks.exists?(customer_id: customer.id)
   end

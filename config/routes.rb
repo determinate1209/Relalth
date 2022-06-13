@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     patch 'customers/withdraw' => 'customers#withdraw'#退会処理
     get 'mypage' => 'customers#show'
     get 'customers/quit' => 'customers#quit'#退会確認ページ
+    get 'customers' => 'customers#edit'
     
   end
   

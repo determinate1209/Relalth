@@ -1,3 +1,4 @@
+<%= render 'layouts/errors', obj: @menu %>
 <h3>メニュー編集</h3>
 <%= form_with model: @menu, url: menu_path, method: :patch do |f| %>
 

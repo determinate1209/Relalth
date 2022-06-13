@@ -51,7 +51,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
     
     def after_sign_up_path_for(resource)
       flash[:notice] = "登録が完了できましたようこそRELALTHへ！"
-      root_path
+      mypage_path
     end
     
     def after_sign_out_path_for(resource)

@@ -1,0 +1,8 @@
+<% if obj.errors.any? %>
+  <h3><%= pluralize(obj.errors.count, "件のエラー") %> </h3>
+    <ul>
+      <% obj.errors.full_messages.each do |message| %>
+        <li class="list-unstyled text-center"><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>

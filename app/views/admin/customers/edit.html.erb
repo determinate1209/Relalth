@@ -1,3 +1,4 @@
+<%= render 'layouts/errors', obj: @customer %>
 <h3>会員情報編集</h3>
   <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
   

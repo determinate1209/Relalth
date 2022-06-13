@@ -11,9 +11,12 @@ class Public::MenusController < ApplicationController
     @menu = Menu.new(menu_params)
     @menu.customer_id = current_customer.id #投稿者が編集、削除できるように
     
-    @menu.save
-    flash[:notice] = "メニューを投稿しました！"
-    redirect_to menu_path(@menu.id)
+    if @menu.save
+      flash[:notice] = "メニューを投稿しました！"
+      redirect_to menu_path(@menu.id)
+    else
+      render 'new'
+    end
   end
   
   
@@ -43,16 +46,19 @@ class Public::MenusController < ApplicationController
   
   def update
     @menu = Menu.find(params[:id])
-    @menu.update(menu_params)
-    flash[:notice] = "メニューを編集しました！"
-    redirect_to menus_path
+    if @menu.update(menu_params)
+      flash[:notice] = "メニューを編集しました！"
+      redirect_to menus_path
+    else
+      render 'edit'
+    end
   end
   
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy
     flash[:notice] = "メニューを削除しました"
-    redirect_to request.referer
+    redirect_to menus_path
   end
   
   def diagnosis

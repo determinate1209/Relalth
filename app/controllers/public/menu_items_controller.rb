@@ -8,7 +8,12 @@ class Public::MenuItemsController < ApplicationController
     @menu_items = @menu.menu_items
     menu_item = MenuItem.new(menu_item_params)
     menu_item.menu_id = @menu.id
-    menu_item.save
+    if menu_item.save
+      
+    else
+      flash[:notice] = "ストレッチの説明を記入してください"
+      redirect_to menu_path(@menu.id)
+    end
     
   end
   
@@ -16,8 +21,12 @@ class Public::MenuItemsController < ApplicationController
   def update
     menu = Menu.find(params[:menu_id])
     @menu_item = MenuItem.find(params[:id])
-    @menu_item.update(menu_item_params)
-    redirect_to menu_path(menu.id)
+    if @menu_item.update(menu_item_params)
+      flash[:notice] = "ストレッチの内容がを更新されました。"
+      redirect_to menu_path(menu.id)
+    else
+      render 'edit'
+    end
   end
   
   def destroy

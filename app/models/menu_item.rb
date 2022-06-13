@@ -1,6 +1,8 @@
 class MenuItem < ApplicationRecord
   belongs_to :menu
   
+  validates :description, presence: true
+  
   has_one_attached :image
   
   def get_image(width, height)
