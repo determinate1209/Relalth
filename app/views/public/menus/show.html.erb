@@ -10,15 +10,10 @@
 
 <% if customer_signed_in? %><!--ログインしていたらコメント,ブックマークできる-->
   <% if @menu.customer_id != current_customer.id %><!--投稿した会員ではない場合ブックマークできる-->
-  
-  <div id="bookmark_btn_<%= @menu.id %>">
-    <%= render "public/bookmarks/btn", menu: @menu %>
-  </div>
-    
-    
+    <div id="bookmark_btn_<%= @menu.id %>">
+      <%= render "public/bookmarks/btn", menu: @menu %>
+    </div>
   <% end %>
-  
-  
   
   <%= render "public/comments/form", menu: @menu, comment: @comment %>
   

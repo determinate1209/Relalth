@@ -1,11 +1,12 @@
 <h3><%= @menu.name %></h3>
-
-<%= render "public/menu_items/index", menu: @menu %>
-  
+<div class="admin_menu_items_area">
+  <%= render "admin/menu_items/index", menu: @menu %>
+</div>
 
 <div class="admin_comments_area">
   <%= render "admin/comments/index", menu: @menu %>
 </div>
+
 
 
 
