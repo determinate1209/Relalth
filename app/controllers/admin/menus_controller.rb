@@ -25,12 +25,14 @@ class Admin::MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
     @menu.update(menu_params)
+    flash[:notice] = "内容を編集しました。"
     redirect_to menu_path(@menu)
   end
   
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy
+    flash[:notice] = "メニューを削除しました"
     redirect_to request.referer
   end
   

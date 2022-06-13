@@ -43,10 +43,12 @@ class Public::SessionsController < Devise::SessionsController
   private
   
     def after_sign_in_path_for(resource)
+      flash[:notice] = "ログインできました。ようこそRELALTHへ！"
       root_path
     end
   
     def after_sign_out_path_for(resource)
+      flash[:notice] = "ログアウトが完了しました、ご利用ありがとうございました！"
       root_path
     end
   

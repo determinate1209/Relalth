@@ -1,4 +1,7 @@
 class Public::CustomersController < ApplicationController
+  before_action :move_to_signed_in, only: [ :show, :edit]
+  before_action :current_customer_signed_in?, only: [:edit, :update, :withdraw]
+  
   def show
     bookmark= Bookmark.where(customer_id: current_customer.id
     ).pluck(:menu_id)
@@ -14,7 +17,8 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(current_customer.id)
     @customer.update(customer_params)
-    redirect_to customer_path
+    flash[:notice] = "会員情報を更新しました。"
+    redirect_to mypage_path
   end
 
   def quit
@@ -26,6 +30,7 @@ class Public::CustomersController < ApplicationController
     @customer.update(is_deleted: true)
     #sessionIDのresetを行う
     reset_session
+    flash[:notice] = "退会処理を実行しました。"
     redirect_to root_path
   end
   
@@ -36,5 +41,18 @@ class Public::CustomersController < ApplicationController
                                      :first_name,
                                      :email,
                                      :user_name)
+  end
+  
+  def move_to_signed_in
+    unless customer_signed_in?
+      
+      redirect_to  '/customers/sign_in'
+    end
+  end
+  
+  def correct_customer
+    @customer = Customer.find(params[:id])
+    
+    redirect_to (mypage_path) unless @customer == current_customer
   end
 end
