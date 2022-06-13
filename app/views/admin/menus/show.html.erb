@@ -1,23 +1,8 @@
 <h3><%= @menu.name %></h3>
 
+<%= render "public/menu_items/index", menu: @menu %>
+  
 
   
-<% @menu.menu_items.each do |menu_item| %>
-  <%= image_tag menu_item.get_image(100, 100) %><br />
+<%= render "admin/comments/index", comments: @menu.comments %>
   
-  <%= menu_item.description %><br />
-  
-  
-  <%= link_to "削除", admin_menu_menu_item_path(menu_item.menu_id, menu_item.id), method: :delete, "data-confirm" => "不適切とみなし削除しますか？" %><br />
-  
-    
-<% end %>
-  
-<h3><%= @menu.comments.count %>件のコメント</h3>
-<% @menu.comments.each do |comment| %>
-  <%= comment.customer.user_name %>
-  <%= comment.comment %>
-  <%= link_to "削除", admin_menu_comment_path(comment.menu_id,comment.id), method: :delete, "data-confirm" => "不適切とみなし削除しますか？" %><br />
-  
-  
-<% end %>

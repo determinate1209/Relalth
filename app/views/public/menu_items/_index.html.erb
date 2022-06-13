@@ -1,0 +1,12 @@
+<% menu.menu_items.each do |menu_item| %>
+  <%= image_tag menu_item.get_image(100, 100) %><br />
+  
+  
+  <%= menu_item.description %><br />
+  
+  <% if menu.customer == current_customer %>
+    <%= link_to "編集する", edit_menu_menu_item_path(menu_item.menu_id, menu_item.id) %>
+    <%= link_to "削除", menu_menu_item_path(menu_item.menu_id, menu_item.id), method: :delete,"data-confirm" => "本当に消しますか？" %><br />
+    
+  <% end %>
+<% end %>

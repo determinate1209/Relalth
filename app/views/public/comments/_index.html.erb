@@ -1,0 +1,14 @@
+<h3><%= menu.comments.count %>件のコメント</h3>
+<% menu.comments.each do |comment| %>
+  <%= comment.customer.user_name %>
+  <%= comment.comment %>
+  <% if comment.customer == current_customer || menu.customer == current_customer %>
+  <!--コメントした人または、このメニューを投稿した人-->
+  
+    <%= link_to "削除", menu_comment_path(comment.menu_id,comment.id), method: :delete %>
+    
+  <% end %>
+  <br />
+  
+  
+<% end %>

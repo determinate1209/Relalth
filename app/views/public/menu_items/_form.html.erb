@@ -1,16 +1,12 @@
-
-<%= form_with model: [@menu, @menu_item], url: menu_menu_item_path, method: :patch do |f| %>
-
-
+<%= form_with model: [menu, menu_item] do |f| %>
    <%= f.label "ストレッチ画像" %><br />
   <%= f.file_field :image, accept: "image/*" %><br />
   
   <%= f.label "ストレッチの説明" %><br />
   <%= f.text_area :description %><br />
   
-  
   <%= f.label "手順" %>
   <%= f.select :stretch_number,*[1..10] %><br />
   
-  <%= f.submit "メニュー内容を編集" %>
+  <%= f.submit "メニュー内容を追加" %>
 <% end %>

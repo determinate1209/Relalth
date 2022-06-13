@@ -1,0 +1,10 @@
+  <% if menu.bookmarked_by?(current_customer) %>
+      <%= link_to menu_bookmarks_path(menu), method: :delete,remote: true do %>
+        <p>登録解除</p>
+      <% end %>
+  <% else %>
+      <%= link_to menu_bookmarks_path(menu), method: :post,remote: true do %>
+        <p>お気に入り登録</p>
+      <% end %>
+  <% end %>
+  
