@@ -5,7 +5,7 @@
   <% if comment.customer == current_customer || menu.customer == current_customer %>
   <!--コメントした人または、このメニューを投稿した人-->
   
-    <%= link_to "削除", menu_comment_path(comment.menu_id,comment.id), method: :delete %>
+    <%= link_to "削除", menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true %>
     
   <% end %>
   <br />

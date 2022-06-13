@@ -13,7 +13,7 @@ class Public::MenusController < ApplicationController
     
     @menu.save
     flash[:notice] = "メニューを投稿しました！"
-    redirect_to menu_path(menu.id)
+    redirect_to menu_path(@menu.id)
   end
   
   

@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :comments, only: [:index, :destroy] #管理者コメント一覧機能
+    resources :comments, only: [:destroy] #管理者コメント一覧機能
     resources :menus, only: [:show, :edit, :update, :destroy, :index]do#管理者メニュー機能(一覧、詳細、削除、所属するプランを変更）
       get :search, on: :collection#メニュー検索機能
       resources :menu_items, only: [:destroy]#不適切な投稿を削除できるように

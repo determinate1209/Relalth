@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   before_action :move_to_signed_in, only: [ :show, :edit]
-  before_action :current_customer_signed_in?, only: [:edit, :update, :withdraw]
+  
+  
   
   def show
     bookmark= Bookmark.where(customer_id: current_customer.id
@@ -50,9 +51,4 @@ class Public::CustomersController < ApplicationController
     end
   end
   
-  def correct_customer
-    @customer = Customer.find(params[:id])
-    
-    redirect_to (mypage_path) unless @customer == current_customer
-  end
 end

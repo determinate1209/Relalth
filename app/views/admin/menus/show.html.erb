@@ -3,6 +3,10 @@
 <%= render "public/menu_items/index", menu: @menu %>
   
 
-  
-<%= render "admin/comments/index", comments: @menu.comments %>
-  
+<div class="admin_comments_area">
+  <%= render "admin/comments/index", menu: @menu %>
+</div>
+
+
+
+

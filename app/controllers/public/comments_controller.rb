@@ -1,20 +1,17 @@
 class Public::CommentsController < ApplicationController
   def create
-    menu = Menu.find(params[:menu_id])
-    @comment = Comment.new(comment_params)
-    @comment.menu_id = menu.id
-    @comment.customer_id = current_customer.id
-    
-    @comment.save
-    redirect_to request.referer
+    @menu = Menu.find(params[:menu_id])
+    comment = current_customer.comments.new(comment_params)
+    comment.menu_id = @menu.id
+    comment.save
       
   end
   
   def destroy
+    refroute = Rails.application.routes.recognize_path(request.referrer)
+    @menu = Menu.find(refroute[:id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to request.referer
-      
   end
   
   private

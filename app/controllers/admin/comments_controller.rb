@@ -1,11 +1,11 @@
 class Admin::CommentsController < ApplicationController
-  def index
-    @comments = Comment.all
-  end
   
   def destroy
+    refroute = Rails.application.routes.recognize_path(request.referrer)
+    @menu = Menu.find(refroute[:id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to request.referer
+    
   end
 end
+
