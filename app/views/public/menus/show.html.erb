@@ -4,9 +4,9 @@
   <%= render "public/menu_items/form", menu: @menu, menu_item: @menu_item %>
 <% end %>
 
-
-<%= render "public/menu_items/index", menu: @menu %>
-
+<div class="menu_items_area">
+  <%= render "public/menu_items/index", menu: @menu %>
+</div>
 
 <% if customer_signed_in? %><!--ログインしていたらコメント,ブックマークできる-->
   <% if @menu.customer_id != current_customer.id %><!--投稿した会員ではない場合ブックマークできる-->

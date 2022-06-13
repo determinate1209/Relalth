@@ -4,12 +4,13 @@ class Public::MenuItemsController < ApplicationController
   end
   
   def create
-    menu = Menu.find(params[:menu_id])
-    @menu_item = MenuItem.new(menu_item_params)
-    @menu_item.menu_id = menu.id
-    @menu_item.save
-    redirect_to request.referer
+    @menu = Menu.find(params[:menu_id])
+    menu_item = MenuItem.new(menu_item_params)
+    menu_item.menu_id = @menu.id
+    menu_item.save
+    
   end
+  
   
   def update
     menu = Menu.find(params[:menu_id])
@@ -19,10 +20,10 @@ class Public::MenuItemsController < ApplicationController
   end
   
   def destroy
-    menu = Menu.find(params[:menu_id])
+    refroute = Rails.application.routes.recognize_path(request.referrer)
+    @menu = Menu.find(refroute[:id])
     @menu_item = MenuItem.find(params[:id])
     @menu_item.destroy
-    redirect_to request.referer
     
   end
    

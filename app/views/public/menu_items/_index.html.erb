@@ -6,7 +6,7 @@
   
   <% if menu.customer == current_customer %>
     <%= link_to "編集する", edit_menu_menu_item_path(menu_item.menu_id, menu_item.id) %>
-    <%= link_to "削除", menu_menu_item_path(menu_item.menu_id, menu_item.id), method: :delete,"data-confirm" => "本当に消しますか？" %><br />
+    <%= link_to "削除", menu_menu_item_path(menu_item.menu_id, menu_item.id), method: :delete, remote: true, "data-confirm" => "本当に消しますか？" %><br />
     
   <% end %>
 <% end %>
