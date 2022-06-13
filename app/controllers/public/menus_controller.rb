@@ -31,9 +31,10 @@ class Public::MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
-    
+    @menu_items = @menu.menu_items.order("stretch_number")
     @menu_item = MenuItem.new
     @comment = Comment.new
+    
   end
 
   def edit

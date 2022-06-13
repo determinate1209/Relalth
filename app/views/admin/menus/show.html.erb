@@ -1,6 +1,9 @@
 <h3><%= @menu.name %></h3>
+
+<%= link_to "このページの全てを削除する", admin_menu_path(@menu),  method: :delete,
+                                              "data-confirm" => "メニュー、投稿したストレッチ、コメントが全て消えてしまいます。<br />本当に削除しますか？" %>
 <div class="admin_menu_items_area">
-  <%= render "admin/menu_items/index", menu: @menu %>
+  <%= render "admin/menu_items/index", menu: @menu, menu_items: @menu_items %>
 </div>
 
 <div class="admin_comments_area">

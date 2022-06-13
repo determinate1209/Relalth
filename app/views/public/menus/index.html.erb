@@ -15,8 +15,7 @@
   <%= menu.description %>
   <%= menu.site_name_i18n %>
   <% if menu.customer == current_customer %>
-    <%= link_to "編集する", edit_menu_path(menu.id) %>
-    <%= link_to "削除する", menu_path(menu.id), method: :delete,"data-confirm" => "本当に消しますか？" %>
+    <%= link_to "メニュー名、説明を変更する", edit_menu_path(menu.id) %>
 
   <% end %><br />
 <% end %>

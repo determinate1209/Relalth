@@ -15,8 +15,7 @@
   
   <%= menu.description %>
   <%= menu.site_name_i18n %>
-    <%= link_to "編集する", edit_admin_menu_path(menu.id) %>
-    <%= link_to "削除する", admin_menu_path(menu.id), method: :delete %><br />
+    <%= link_to "メニュー名、説明を変更する", edit_admin_menu_path(menu.id) %><br />
   
 <% end %>
 
