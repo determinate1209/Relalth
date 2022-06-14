@@ -18,7 +18,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-//= require jquery
+//= require jquery3
 //= require rails-ujs
 var jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;
