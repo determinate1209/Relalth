@@ -1,28 +1,32 @@
-<h3>診断スタート</h3>
-<h5>
-  質問１つにつきどちらか1つお選びください！<br />
-  
-<%= form_with model: @hearing, url: hearings_path do |f| %>
-  <p>Question1. 身体でしんどいのは？</p>
-    <label><%= f.radio_button :question1, 1, checked: true %>脚</label>
-    <label><%= f.radio_button :question1, 2 %>膝</label>
-    <label><%= f.radio_button :question1, 3 %>腰</label>
-    <label><%= f.radio_button :question1, 4 %>肩</label>
-    <label><%= f.radio_button :question1, 5 %>全身</label>
-    
-    
-  <p>Question2. 症状はどちらかというと？</p>
-    <label><%= f.radio_button :question2, 1, checked: true %>痛み</label>
-    <label><%= f.radio_button :question2, 2 %>疲労感（コリ、疲れ、むくみ、だるさなど）</label>
-    
-  <p>Question2. いつから？</p>
-    <label><%= f.radio_button :question3, 1, checked: true  %>一週間以内（直近）</label>
-    
-    <label><%= f.radio_button :question3, 2 %>一週間より前</label>
-    
-  <p>Question2. 現在、怪我、病気、妊娠などで通院されていますか？</p>
-    <label><%= f.radio_button :question4, 1, checked: true %>通院している</label>
-    <label><%= f.radio_button :question4, 2 %>通院していない（通院しているが医師に運動、ストレッチを勧められた。または、その許可が出た)</label><br />
-  
-  <%= f.submit "結果を見る"%>
-<% end %>
+<div class="container">
+  <div class"row">
+    <h3>診断スタート</h3>
+    <h6>
+      質問内容に当てはまる部分を選択してください！<br />
+    </h6>  
+    <%= form_with model: @hearing, url: hearings_path do |f| %>
+      
+        <h5>Question1. 身体でしんどいのは？</h5>
+        <label><%= f.radio_button :question1, 1, checked: true %>脚</label>
+        <label><%= f.radio_button :question1, 2 %>膝</label>
+        <label><%= f.radio_button :question1, 3 %>腰</label>
+        <label><%= f.radio_button :question1, 4 %>肩</label>
+        <label><%= f.radio_button :question1, 5 %>全身</label>
+      
+        <h5>Question2. 症状はどちらかというと？</h5>
+        <label><%= f.radio_button :question2, 1, checked: true %>痛み</label>
+        <label><%= f.radio_button :question2, 2 %>疲労感（コリ、疲れ、むくみ、だるさなど）</label>
+      
+        <h5>Question3. いつから？</h5>
+        <label><%= f.radio_button :question3, 1, checked: true  %>一週間以内（直近）</label>
+        
+        <label><%= f.radio_button :question3, 2 %>一週間より前</label>
+
+        <h5>Question4. 現在、怪我、病気、妊娠などで通院していますか？</h5>
+        <label><%= f.radio_button :question4, 1, checked: true %>通院している</label>
+        <label><%= f.radio_button :question4, 2 %>通院していない （通院しているが医師に運動、ストレッチを勧められた。または、その許可が出た)</label><br />
+      
+      <%= f.submit "結果を見る", class: "btn btn-info" %>
+    <% end %>
+  </div>
+</div>

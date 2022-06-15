@@ -1,23 +1,52 @@
-<h3>部位検索</h3>
-  <%= form_tag(menus_path, method: :get) do %>
-    <%= select_tag :site_name, options_for_select({ "全身" => "zenshin", "首" => "neck", "肩" => "shoulder",
-                                                    "腰" => "waist", "脚" => "leg", "膝" => "knee"}) %>
-    <%= submit_tag '検索する' %>
-  <% end %>
-<h3>一覧</h3>
+<div class="container">
+  <div class="row  offset-1 mt-5 mb-3">
+    <div class="col-lg-6">
+      <h3>メニュー一覧</h3>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="d-flex justify-content-end mb-５">
+        
+        
+        <div class="form-inline d-block text-right">
+          <p><%= link_to "メニュー作成", new_menu_path,class: "btn btn-outline-info" %></p>
+            <%= form_tag(menus_path, method: :get) do %>
+              <%= select_tag :site_name, options_for_select({ "全て" => "zenshin", "膝" => "knee", "脚" => "leg",
+                                                              "腰" => "waist", "肩" => "shoulder","首" => "neck"}) %>
+              <%= button_tag type: 'submit' do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-md-5">
+  <div class="row mx-md-5">
+    <table class="table mx-5 table-hover table-inverse">
+      <% @menus.each do |menu| %>
+        <thead class="thead-ligit">
+          <tr>
+            <th style="width: 50%;">メニュー名:　<%= menu.name %></th>
+            <th class="text-right" style="width: 50%;">部位:<%= menu.site_name_i18n %></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+        <tr>
+          <td><%= menu.description %><br /></td>
+          <td class="text-right">
+          <%= link_to "メニューを見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %><br />
+          <% if menu.customer == current_customer %>
+            <%= link_to "詳細を変更する",edit_menu_path(menu.id),class: "btn btn-outline-success justify-content-end" %>
+          <% end %>
+          </td>
+          
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+  
 
-<% @menus.each do |menu| %>
-
-  <%= link_to menu_path(menu.id) do %>
-    <%= menu.name %>
-  <% end %>
-
-  <%= menu.description %>
-  <%= menu.site_name_i18n %>
-  <% if menu.customer == current_customer %>
-    <%= link_to "メニュー名、説明を変更する", edit_menu_path(menu.id) %>
-
-  <% end %><br />
-<% end %>
-<%= link_to "メニューを作成", new_menu_path %>
 
