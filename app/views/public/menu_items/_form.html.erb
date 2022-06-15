@@ -1,12 +1,16 @@
 <%= form_with(model: [menu, menu_item],local: false) do |f| %>
-   <%= f.label "ストレッチ画像" %><br />
-  <%= f.file_field :image, accept: "image/*" %><br />
+  <div class="form-group">
+    <%= f.label "ストレッチ画像" %><br />
+    <%= f.file_field :image, accept: "image/*", class: "form-control-file" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "ストレッチの説明" %><br />
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "手順" %>
+    <%= f.select :stretch_number,*[1..10], class: "form-control" %>
+  </div>
   
-  <%= f.label "ストレッチの説明" %><br />
-  <%= f.text_area :description %><br />
-  
-  <%= f.label "手順" %>
-  <%= f.select :stretch_number,*[1..10] %><br />
-  
-  <%= f.submit "メニュー内容を追加" %>
+  <%= f.submit "ストレッチを追加",class: "btn btn-success"  %>
 <% end %>

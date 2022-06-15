@@ -16,11 +16,11 @@ class Menu < ApplicationRecord
                     body_pain: 8,
                     body_fatigue:9}
                     
-  enum site_name: { neck: 0,
-                    shoulder: 1,
+  enum site_name: { leg: 0,
+                    knee: 1,
                     waist: 2,
-                    knee: 3,
-                    leg: 4}
+                    shoulder: 3,
+                    neck: 4}
   
   validates :name, presence: true
   validates :description, presence: true

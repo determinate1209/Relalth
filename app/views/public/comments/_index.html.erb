@@ -1,15 +1,15 @@
-
-<h3><%= menu.comments.count %>件のコメント</h3>
-<% menu.comments.each do |comment| %>
-  <%= comment.customer.user_name %>
-  <%= comment.comment %>
-  <% if comment.customer == current_customer || menu.customer == current_customer %>
-  <!--コメントした人または、このメニューを投稿した人-->
-  
-    <%= link_to "削除", menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true %>
-    
+<h3 class="my-3"><%= menu.comments.count %>件のコメント</h3>
+<table class="table table-hover table-inverse">
+  <% menu.comments.each do |comment| %>
+  <tr>
+    <td class="text-left"><%= comment.customer.user_name %></td>
+    <td class="text-right">
+      <%= comment.comment %><br />
+      <% if comment.customer == current_customer || menu.customer == current_customer %>
+        <!--コメントした人または、このメニューを投稿した人-->
+        <%= link_to "削除", menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true %>
+      <% end %>
+    </td>
+  </tr>
   <% end %>
-  <br />
-  
-  
-<% end %>
+</table>
