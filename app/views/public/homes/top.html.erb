@@ -1,2 +1,28 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+  <div class"row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">      
+      <h3 class="top-title">ようこそ、<strong>RELALTH</strong>へ！</h3>
+      <p>
+        <strong>RELALTH</strong>では、セルフケアのやり方が共有できたり、<br />
+        ご自身の身体に合わせたストレッチと出会うことができます。
+      </p>
+       <div class="btn-wrapper col-11 mx-auto">
+        <div class="row">
+          <%= link_to "診断開始する", new_hearing_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in"  %>
+        </div>
+      </div>
+      <p>
+        また、会員登録していただくと、ストレッチのメニューをお気に入り登録をすることができたり、<br />
+        コメントをすることができるようになります。
+      </p>
+       <div class="btn-wrapper col-11 mx-auto">
+        <div class="row">
+          <%= link_to "ログイン", new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in"  %><br />
+        </div>
+        <div class="row">
+          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in"  %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
