@@ -1,28 +1,59 @@
 <div class="container">
   <div class"row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">      
-      <h3 class="top-title">ようこそ、<strong>RELALTH</strong>へ！</h3>
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <% if current_admin.present? %> 
+      <h3>RELALTH管理者画面</h3>
       <p>
-        <strong>RELALTH</strong>では、セルフケアのやり方が共有できたり、<br />
-        ご自身の身体に合わせたストレッチと出会うことができます。
+        RELALTH管理者画面は、会員情報の閲覧や、不適切な投稿を削除。<br />
+        また、不適切な投稿を行うユーザーの利用停止を行うことができます。
       </p>
-       <div class="btn-wrapper col-11 mx-auto">
+      <div class="btn-wrapper col-11 mx-auto">
         <div class="row">
-          <%= link_to "診断開始する", new_hearing_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in"  %>
-        </div>
-      </div>
-      <p>
-        また、会員登録していただくと、ストレッチのメニューをお気に入り登録をすることができたり、<br />
-        コメントをすることができるようになります。
-      </p>
-       <div class="btn-wrapper col-11 mx-auto">
-        <div class="row">
-          <%= link_to "ログイン", new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in"  %><br />
+          <%= link_to "会員一覧", admin_customers_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
         </div>
         <div class="row">
-          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in"  %>
+          <%= link_to "メニュー一覧", admin_menus_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in" %>
         </div>
-      </div>
+      
+      <% else %>
+        <h3 class="top-title">ようこそ、<strong>RELALTH</strong>へ！</h3>
+        <p>
+          <strong>RELALTH</strong>では、セルフケアのやり方が共有できたり、<br />
+          ご自身の身体に合わせたストレッチと出会うことができます。
+        </p>
+        <div class="btn-wrapper col-11 mx-auto">
+          <div class="row">
+            <%= link_to "診断開始する", new_hearing_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in"  %>
+          </div>
+        </div>
+        
+        <% if current_customer == nil %>
+          <p>
+            また、会員登録していただくと、ストレッチのメニューをお気に入り登録をすることができたり、<br />
+            コメントをすることができるようになります。
+          </p>
+           <div class="btn-wrapper col-11 mx-auto">
+            <div class="row">
+              <%= link_to "ログイン", new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in"  %><br />
+            </div>
+            <div class="row">
+              <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in"  %>
+            </div>
+          </div>
+        <% else %>
+          <p>
+            会員機能ではマイページにてお気に入りのメニューを確認できたり、ご自身の投稿を確認できます。<br />
+            また、メニューにコメントをすることもできるのでぜひしてみてください！
+          </p>
+          <div class="btn-wrapper col-11 mx-auto">
+            <div class="row">
+              <%= link_to "マイページ", mypage_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+            </div>
+            <div class="row">
+              <%= link_to "メニュー一覧", menus_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in" %>
+            </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>  
