@@ -1,12 +1,19 @@
-<h3><%= menu.comments.count %>件のコメント</h3>
-<% menu.comments.each do |comment| %>
-  <%= link_to admin_customer_path(comment.customer) do %>
-    <%= comment.customer.last_name + comment.customer.first_name %>
+<h3 class="my-3"><%= menu.comments.count %>件のコメント</h3>
+<table class="table table-hover table-inverse">
+  <% menu.comments.each do |comment| %>
+  <tr>
+    <td class="text-left">
+      <%= link_to admin_customer_path(comment.customer) do %>
+        <%= comment.customer.last_name + comment.customer.first_name %>
+      <% end %>
+    </td>
+    <td class="text-right">
+      <%= comment.comment %><br />
+      <%= link_to "削除", admin_menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true , "data-confirm" => "本当に消しますか？"%>
+    </td>
+  </tr>
   <% end %>
-  <%= comment.comment %>
-  <%= link_to "削除", admin_menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true , "data-confirm" => "本当に消しますか？"%><br />
-  
-<% end %>
+</table>
 
 
 

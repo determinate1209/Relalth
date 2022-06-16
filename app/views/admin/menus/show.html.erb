@@ -1,13 +1,21 @@
-<h3><%= @menu.name %></h3>
-
-<%= link_to "このページの全てを削除する", admin_menu_path(@menu),  method: :delete,
-                                              "data-confirm" => "メニュー、投稿したストレッチ、コメントが全て消えてしまいます。         本当に削除しますか？" %>
-<div class="admin_menu_items_area">
-  <%= render "admin/menu_items/index", menu: @menu, menu_items: @menu_items %>
-</div>
-
-<div class="admin_comments_area">
-  <%= render "admin/comments/index", menu: @menu %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-3">
+      <%= link_to "このページの全てを削除", admin_menu_path(@menu),  method: :delete,
+        "data-confirm" => "メニュー、投稿したストレッチ、コメントが全て消えてしまいます。\r\n本当に削除しますか？", class: "btn btn-danger" %>
+    </div>                                        
+    <div class="col-sm-12 col-md-6 px-5">
+      <h3><%= @menu.name %></h3>
+        <div class="admin_menu_items_area">
+          <%= render "admin/menu_items/index", menu: @menu, menu_items: @menu_items %>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      <div class="admin_comments_area">
+        <%= render "admin/comments/index", menu: @menu %>
+      </div>
+    </div>
+  </div>
 </div>
 
 

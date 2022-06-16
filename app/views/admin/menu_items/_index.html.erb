@@ -1,9 +1,20 @@
-<% menu_items.each do |menu_item| %>
-  <%= image_tag menu_item.get_image(100, 100) %><br />
-  
-  <%= menu_item.description %><br />
-    
-    <%= link_to "削除", admin_menu_menu_item_path(menu_item.menu_id, menu_item.id), 
-                                                  method: :delete, remote: true, 
-                                                  "data-confirm" => "不適切とみなし本当に消しますか？" %><br />
-<% end %>
+<table class='table table-hover table-inverse'>
+  <% menu_items.each do |menu_item| %>
+    <tbody>
+      <tr>
+        <td class="text-center"><%= image_tag menu_item.get_image(350, 260) %></td>
+      </tr>
+      <tr>
+        <td class="text-center">
+          <%= menu_item.description %><br />
+          <p class="text-right mt-4">
+            <%= link_to "削除", admin_menu_menu_item_path(menu_item.menu_id, menu_item.id), 
+                                                    method: :delete, remote: true, 
+                                                    "data-confirm" => "不適切とみなし本当に消しますか？",
+                                                    class: "btn btn-outline-danger justify-content-end" %>
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

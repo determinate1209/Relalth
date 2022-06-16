@@ -1,20 +1,62 @@
-<h3><%= @customer.last_name + @customer.first_name %>さんの会員詳細ページ</h3>
+ <div class="row">
+  <div class="col-sm-12 col-md-6 px-5">
+    <h3><%= @customer.last_name + @customer.first_name %>さんの会員詳細ページ</h3>
+    <table class="table table-bordered">
+      <tr>
+        <th>（姓）:</th>
+        <td><%= @customer.last_name %></td>
+      </tr>
+      <tr>
+        <th>（名）:</th>
+        <td><%= @customer.first_name %></td>
+      </tr>
+      <tr>
+        <th>ユーザーネーム:</th>
+        <td><%= @customer.user_name %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス:</th>
+        <td><%= @customer.email %></td>
+      </tr>
+      <tr>
+        <th>会員ステータス</th>
+        <% if @customer.is_deleted == true %>
+          <td>退会</td>
+        <% else %>
+          <td>会員</td>
+        <% end %>
+      </tr>
+    </table>
+      <%= link_to "会員情報を編集", edit_admin_customer_path(@customer), class: "btn btn-success mb-5" %>
+  </div>
 
-
-<%= @customer.last_name + @customer.first_name %><br />
-<%= @customer.user_name %><br />
-<%= @customer.email %><br />
-<%= @customer.is_deleted %><br />
-
-<%= link_to "編集する", edit_admin_customer_path(@customer) %><br />
-
-<h3>投稿したメニュー</h3>
-<% @customer.menus.each do |menu| %>
-  <%= link_to menu_path(menu.id) do %>
-    <%= menu.name %>
-  <% end %>
-  <%= menu.description %>
-  <%= link_to "削除", admin_menu_path(menu.id), method: :delete,  "data-confirm" => "不適切とみなし削除しますか？" %><br />
-<% end %>
+  <div class="col-sm-12 col-md-6 px-5">
+    <h3><%= @customer.last_name+@customer.first_name %>さんが投稿したメニュー</h3>
+    <table class='table table-hover table-inverse'>
+      <thead>
+        <tr>
+          <th>メニュー名</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customer.menus.each do |menu| %>
+          <tr>
+            <td>
+                <%= menu.name %>
+            </td>
+            <td>
+              <%= menu.description %><br />
+              <br />
+              <%= link_to "内容を見る",admin_menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
+              <%= link_to "詳細を変更", edit_admin_menu_path(menu.id),class: "btn btn-outline-success justify-content-end" %>
+              
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
   

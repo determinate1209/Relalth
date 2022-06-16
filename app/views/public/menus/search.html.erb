@@ -1,11 +1,27 @@
-<h2>検索結果</h2>
-  <ul>
-    <% @menus.each do |menu| %>
-      <li>
-        <%= link_to menu_path(menu.id) do %>
-          <%= menu.name %>
-        <% end %><br />
-        <p><%= menu.description %></p>
-      </li>
-    <% end %>
-  </ul>
+<div class="container">
+  <h2>検索結果</h2>
+</div>
+<div class="px-md-5">
+  <div class="row mx-md-5">
+    <table class="table mx-5 table-hover table-inverse">
+      <% @menus.each do |menu| %>
+        <thead class="thead-ligit">
+          <tr>
+            <th style="width: 50%;">メニュー名:　<%= menu.name %></th>
+            <th class="text-right" style="width: 50%;">部位:<%= menu.site_name_i18n %></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+        <tr>
+          <td class="text-center"><%= menu.description %></td>
+          <td class="text-right">
+          <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
+          </td>
+          
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+  
