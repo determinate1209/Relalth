@@ -23,8 +23,8 @@
     attributes:
       customer: 
         email: メールアドレス
-        last_name: 苗字
-        first_name: 名前
+        last_name: (姓)
+        first_name: (名)
         password: パスワード
         user_name: ユーザーネーム
         remember_me: ログインを記憶
