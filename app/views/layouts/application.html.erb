@@ -23,9 +23,15 @@
       <%= render 'layouts/customer_header' %>
     <% end %>
     </header>
+     
     <main>
-      <%=render "layouts/notice" %>
-      <%= yield %>
+      <div class="notice mb-5">
+        <%= render "layouts/notice" %>
+      </div>
+      <div class="pt-5">
+        <%= yield %>
+      </div>
+      
     </main>
     
     <footer>

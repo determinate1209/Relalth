@@ -24,7 +24,7 @@
         </ul>
         <div class="form-inline d-block text-right">
           <%= form_with url: search_menus_path, local: true, method: :get do |form| %>
-            <%= form.text_field :name %>
+            <%= form.text_field :name,class: "page-text" %>
             <%= button_tag type: 'submit' do %>
               <i class="fas fa-search"></i>
             <% end %>

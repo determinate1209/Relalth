@@ -1,7 +1,7 @@
 <containar>
   <div class="row  offset-1 mt-5 mb-3">
     <div class="col-lg-6">
-      <h3 class="mini-title">会員一覧</h3>
+      <h3 class="page-title">会員一覧</h3>
     </div>
   </div>
 
@@ -10,21 +10,21 @@
       <table class="table table-bordered table-hover table-background">
         <thead class="thead-light">
           <tr>
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
+            <th class="page-text">会員ID</th>
+            <th class="page-text">氏名</th>
+            <th class="page-text">メールアドレス</th>
+            <th class="page-text">ステータス</th>
           </tr>
         </thead>
         <tbody>
            <% @customers.each do |customer| %>
             <tr onclick='window.location="<%= '/admin/customers/' + customer.id.to_s %>"' role="link">
-              <td><%= customer.id %></td>
-              <td>
+              <td class="page-text"><%= customer.id %></td>
+              <td class="page-text">
                 <%= customer.last_name+customer.first_name %>
 
               </td>
-              <td><%= customer.email %></td>
+              <td class="page-text"><%= customer.email %></td>
               <% if customer.is_deleted == true %>
                 <td class="text-danger">退会</td>
               <% else %>

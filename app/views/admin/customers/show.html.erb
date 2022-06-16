@@ -1,29 +1,29 @@
  <div class="row">
   <div class="col-sm-12 col-md-6 px-5">
-    <h3><%= @customer.last_name + @customer.first_name %>さんの会員詳細ページ</h3>
+    <h3 class="page-title"><%= @customer.last_name + @customer.first_name %>さんの会員詳細ページ</h3>
     <table class="table table-bordered">
       <tr>
-        <th>（姓）:</th>
-        <td><%= @customer.last_name %></td>
+        <th class="page-text">（姓）:</th>
+        <td class="page-text"><%= @customer.last_name %></td>
       </tr>
       <tr>
-        <th>（名）:</th>
-        <td><%= @customer.first_name %></td>
+        <th class="page-text">（名）:</th>
+        <td class="page-text"><%= @customer.first_name %></td>
       </tr>
       <tr>
-        <th>ユーザーネーム:</th>
-        <td><%= @customer.user_name %></td>
+        <th class="page-text">ユーザーネーム:</th>
+        <td class="page-text"><%= @customer.user_name %></td>
       </tr>
       <tr>
-        <th>メールアドレス:</th>
-        <td><%= @customer.email %></td>
+        <th class="page-text">メールアドレス:</th>
+        <td class="page-text"><%= @customer.email %></td>
       </tr>
       <tr>
-        <th>会員ステータス</th>
+        <th class="page-text">会員ステータス</th>
         <% if @customer.is_deleted == true %>
-          <td>退会</td>
+          <td class="text-danger">退会</td>
         <% else %>
-          <td>会員</td>
+          <td class="text-success">有効</td>
         <% end %>
       </tr>
     </table>
@@ -31,21 +31,21 @@
   </div>
 
   <div class="col-sm-12 col-md-6 px-5">
-    <h3><%= @customer.last_name+@customer.first_name %>さんが投稿したメニュー</h3>
+    <h3 class="page-title"><%= @customer.last_name+@customer.first_name %>さんが投稿したメニュー</h3>
     <table class='table table-hover table-inverse'>
       <thead>
         <tr>
-          <th>メニュー名</th>
-          <th>説明</th>
+          <th class="page-text">メニュー名</th>
+          <th class="page-text">説明</th>
         </tr>
       </thead>
       <tbody>
         <% @customer.menus.each do |menu| %>
           <tr>
-            <td>
+            <td class="page-text">
                 <%= menu.name %>
             </td>
-            <td>
+            <td class="page-text">
               <%= menu.description %><br />
               <br />
               <%= link_to "内容を見る",admin_menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>

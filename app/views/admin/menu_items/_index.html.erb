@@ -2,10 +2,10 @@
   <% menu_items.each do |menu_item| %>
     <tbody>
       <tr>
-        <td class="text-center"><%= image_tag menu_item.get_image(350, 260) %></td>
+        <td class="text-center page-text"><%= image_tag menu_item.get_image(350, 260) %></td>
       </tr>
       <tr>
-        <td class="text-center">
+        <td class="text-center page-text">
           <%= menu_item.description %><br />
           <p class="text-right mt-4">
             <%= link_to "削除", admin_menu_menu_item_path(menu_item.menu_id, menu_item.id), 

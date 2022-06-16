@@ -22,7 +22,7 @@
    z-index: 10;
  }
  main {
-   margin-top: 100px;
+   margin-top: 80px;
    padding-bottom:100px;
  }
  
@@ -34,6 +34,10 @@
   color: #3c7b9d;
  }
 
+.alert {
+ background-color:#5b9f8a ;
+ color: #fff
+}
  
 footer {
  width:100%;
