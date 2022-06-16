@@ -1,9 +1,9 @@
-<h3 class="my-3"><%= menu.comments.count %>件のコメント</h3>
+<h3 class="my-3 page-text"><%= menu.comments.count %>件のコメント</h3>
 <table class="table table-hover table-inverse">
   <% menu.comments.each do |comment| %>
   <tr>
-    <td class="text-left"><%= comment.customer.user_name %></td>
-    <td class="text-right">
+    <td class="text-left page-text"><%= comment.customer.user_name %></td>
+    <td class="text-right page-text">
       <%= comment.comment %><br />
       <% if comment.customer == current_customer || menu.customer == current_customer %>
         <!--コメントした人または、このメニューを投稿した人-->

@@ -1,14 +1,15 @@
 <%= form_with(model: [menu, menu_item],local: false) do |f| %>
   <div class="form-group">
-    <%= f.label "ストレッチ画像" %><br />
-    <%= f.file_field :image, accept: "image/*", class: "form-control-file" %>
+    <%= f.label "ストレッチ画像", class: "page-text" %><br />
+    <%= f.file_field :image, accept: "image/*", class: "form-control-file page-text " %>
   </div>
   <div class="form-group">
-    <%= f.label "ストレッチの説明" %><br />
-    <%= f.text_area :description, class: "form-control" %>
+    <%= f.label "ストレッチの説明", class: "page-text" %><br />
+    <%= f.text_area :description, class: "form-control page-text" %>
   </div>
   <div class="form-group">
-    <%= f.label "手順" %>
+    
+    <%= f.label "手順", class: "page-text" %>
     <%= f.select :stretch_number,*[1..10], class: "form-control" %>
   </div>
   

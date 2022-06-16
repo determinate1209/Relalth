@@ -11,7 +11,7 @@
         <% end %>
       </div>
       <div class="col-sm-12 col-md-6 px-5">
-        <h3><%= @menu.name %></h3>
+        <h3 class="page-title"><%= @menu.name %></h3>
         <div class="menu_items_area">
           <%= render "public/menu_items/index", menu_items: @menu_items, menu: @menu %>
         </div>
@@ -25,9 +25,9 @@
               <%= render "public/bookmarks/btn", menu: @menu %>
             </div>
           <% end %>
-          
-          <%= render "public/comments/form", menu: @menu, comment: @comment %>
-          
+          <div class="-top">
+            <%= render "public/comments/form", menu: @menu, comment: @comment %>
+          </div>
         <% else %>
           <p>会員登録またはログインしていただくと、お気に入り登録やコメント投稿ができるようになります。</p>
         <% end %>

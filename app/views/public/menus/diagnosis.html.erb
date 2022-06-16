@@ -1,5 +1,5 @@
 <div class="container">
- <h4>あなたにおすすめのメニューは</h4>
+ <h4 class="page-title">あなたにおすすめのメニューは</h4>
 </div>
 <div class="px-md-5">
   <div class="row mx-md-5">
@@ -7,15 +7,15 @@
       <% @menus.each do |menu| %>
         <thead class="thead-ligit">
           <tr>
-            <th style="width: 50%;">メニュー名:　<%= menu.name %></th>
-            <th class="text-right" style="width: 50%;">部位:<%= menu.site_name_i18n %></th>
+            <th class="page-text" style="width: 50%;">メニュー名:　<%= menu.name %></th>
+            <th class="text-right page-text" style="width: 50%;">部位:<%= menu.site_name_i18n %></th>
           </tr>
         </thead>
         
         <tbody>
         <tr>
-          <td class="text-center"><%= menu.description %></td>
-          <td class="text-right">
+          <td class="text-center page-text"><%= menu.description %></td>
+          <td class="text-right page-text">
           <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
           </td>
           

@@ -1,6 +1,6 @@
 <div class="text-right mt-3">
   <%= form_with(model: [menu, comment], local: false) do |f| %>
-    <%= f.text_field :comment,class: "form-control-file" %>
+    <%= f.text_field :comment,class: "form-control-file page-text" %>
     <%= f.submit "コメントする", class: "btn btn-info" %>
   <% end %>
 </div>

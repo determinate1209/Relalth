@@ -1,8 +1,8 @@
 <div class="container">
   <div class"row">
-    <h3>診断結果</h3>
+    <h3 class="page-title">診断結果</h3>
     <% if @hearing.question4 == 1%>
-      <p>
+      <p class="page-text">
         当サイトは、怪我、病気の、治療・完治などの方法を掲載しているものではなく、<br />
         改善を目的としたストレッチメニューを掲載するサイトです。<br />
         通院中の方は、一度医師にご確認の上ご利用ください。
@@ -11,56 +11,56 @@
     <% else %>
       <% if @hearing.question2 == 1 && @hearing.question3 == 1 %>
         <% if @hearing.question1 == 1 %>
-          <p>
+          <p class="page-text">
             直近で、脚に痛みが発生した方の運動、ストレッチなどのケアはおすすめできません。<br />
             できる限り、痛みが引くまで安静にし医師にご相談することを強くおすすめ致します。<br />
             また、強く痛みがある方、腫れがある方などは、必ず医師にご相談してください。
           </p>
-          <p>
+          <p class="page-text">
             医師による許可が出た方は
             <%= link_to "こちら", diagnosis_menus_path(plan_name: "leg_pain") %>
           </p>
         
         <% elsif @hearing.question1 == 2 %>
-          <p>
+          <p class="page-text">
             直近で、膝に痛みが発生した方の運動、ストレッチなどのケアはおすすめできません。<br />
             できる限り、痛みが引くまで安静にし医師にご相談することを強くおすすめ致します。<br />
             また、強く痛みがある方、腫れがある方などは、必ず医師にご相談してください。
           </p>
-          <p>
+          <p class="page-text">
             医師による許可が出た方は
             <%= link_to "こちら", diagnosis_menus_path(plan_name: "knee_pain") %>
           </p>
         
         <% elsif @hearing.question1 == 3 %>
-          <p>
+          <p class="page-text">
             直近で、腰に痛みが発生した方の運動、ストレッチなどのケアはおすすめできません。<br />
             できる限り、痛みが引くまで安静にし医師にご相談することを強くおすすめ致します。<br />
             また、強く痛みがある方、腫れがある方などは、必ず医師にご相談してください。
           </p>
-          <p>
+          <p class="page-text">
             医師による許可が出た方は
             <%= link_to "こちら", diagnosis_menus_path(plan_name: "waist_pain") %>
           </p>
         
         <% elsif @hearing.question1 == 4 %>
-          <p>
+          <p class="page-text">
             直近で、肩に痛みが発生した方の運動、ストレッチなどのケアはおすすめできません。<br />
             できる限り、痛みが引くまで安静にし医師にご相談することを強くおすすめ致します。<br />
             また、強く痛みがある方、腫れがある方などは、必ず医師にご相談してください。
           </p>
-          <p>
+          <p class="page-text">
             医師による許可が出た方は
             <%= link_to "こちら", diagnosis_menus_path(plan_name: "shoulder_pain") %>
           </p>
         
         <% elsif @hearing.question1 == 5 %>
-          <p>
+          <p class="page-text">
             直近で、膝に痛みが発生した方の運動、ストレッチなどのケアはおすすめできません。<br />
             できる限り、痛みが引くまで安静にし医師にご相談することを強くおすすめ致します。<br />
             また、強く痛みがある方、腫れがある方などは、必ず医師にご相談してください。
           </p>
-          <p>
+          <p class="page-text">
             医師による許可が出た方は
             <%= link_to "こちら", diagnosis_menus_path(plan_name: "body_pain") %>
           </p>
@@ -68,45 +68,45 @@
         
       <% elsif @hearing.question2 == 1 && @hearing.question3 == 2 %>
         <% if @hearing.question1 == 1 %>
-          <p>脚の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">脚の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "leg_pain"), class: "btn btn-info" %>
           
         <% elsif @hearing.question1 == 2 %>
-          <p>膝の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">膝の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "knee_pain"), class: "btn btn-info" %>
           
         <% elsif @hearing.question1 == 3 %>
-          <p>腰の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">腰の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "waist_pain"), class: "btn btn-info" %>
           
         <% elsif @hearing.question1 == 4 %>
-          <p>肩の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">肩の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "shoulder_pain"), class: "btn btn-info" %>
           
         <% elsif @hearing.question1 == 5 %>
-          <p>全身の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">全身の痛みでお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "body_pain"), class: "btn btn-info" %>
           
         <% end %>
         
       <% elsif @hearing.question2 == 2 && @hearing.question3 == 1 || @hearing.question2 == 2 && @hearing.question3 == 2 %>
         <% if @hearing.question1 == 1 %>
-          <p>脚の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">脚の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "leg_fatigue"), class: "btn btn-info" %>
         <% elsif @hearing.question1 == 2 %>
-          <p>膝の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">膝の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "knee_fatigue"), class: "btn btn-info" %>
           
         <% elsif @hearing.question1 == 3 %>
-          <p>腰の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">腰の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "waist_fatigue"), class: "btn btn-info" %>
           
          <% elsif @hearing.question1 == 4 %>
-          <p>肩の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">肩の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "shoulder_fatigue"), class: "btn btn-info" %>
           
          <% elsif @hearing.question1 == 5 %>
-          <p>全身の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
+          <p class="page-text">全身の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
           <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "body_fatigue"), class: "btn btn-info" %>
         <% end %>
       <% end %>

@@ -2,8 +2,8 @@
   <div class"row">
     <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
       <% if current_admin.present? %> 
-      <h3>RELALTH管理者画面</h3>
-      <p>
+      <h3 class="page-title">RELALTH管理者画面</h3>
+      <p class="page-text">
         RELALTH管理者画面は、会員情報の閲覧や、不適切な投稿を削除。<br />
         また、不適切な投稿を行うユーザーの利用停止を行うことができます。
       </p>
@@ -16,8 +16,8 @@
         </div>
       
       <% else %>
-        <h4 class="top-title">ようこそ、<strong>RELALTH</strong>へ！</h4>
-        <p>
+        <h4 class="page-title">ようこそ、<strong>RELALTH</strong>へ！</h4>
+        <p class="page-text">
           <strong>RELALTH</strong>では、セルフケアのやり方が共有できたり、<br />
           ご自身の身体に合わせたストレッチと出会うことができます。
         </p>
@@ -28,7 +28,7 @@
         </div>
         
         <% if current_customer == nil %>
-          <p>
+          <p class="page-text">
             また、会員登録していただくと、ストレッチのメニューをお気に入り登録をすることができたり、<br />
             コメントをすることができるようになります。
           </p>
@@ -41,7 +41,7 @@
             </div>
           </div>
         <% else %>
-          <p>
+          <p class="page-text">
             会員機能ではマイページにてお気に入りのメニューを確認できたり、ご自身の投稿を確認できます。<br />
             また、メニューにコメントをすることもできるのでぜひしてみてください！
           </p>

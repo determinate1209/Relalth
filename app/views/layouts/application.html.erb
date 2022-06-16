@@ -23,10 +23,13 @@
       <%= render 'layouts/customer_header' %>
     <% end %>
     </header>
-    <%=render "layouts/notice" %>
     <main>
+      <%=render "layouts/notice" %>
       <%= yield %>
     </main>
     
+    <footer>
+      <p class="footer-text">@RELALTH</p>
+    </footer>
   </body>
 </html>
