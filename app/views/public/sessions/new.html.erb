@@ -5,7 +5,7 @@
       <div class="mb-4">
         <h5 class="mini-title offset-md-1">会員の方はこちらからログイン</h5>
       </div>
-      <div class="col-8 offset-ms-2">
+      <div class="col-8 offset-md-2">
         <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
           <div class="form_group row">
             <%= f.label "メールアドレス", class: "col-md-4" %><br />
