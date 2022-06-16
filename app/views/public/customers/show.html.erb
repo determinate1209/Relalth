@@ -1,25 +1,84 @@
-<h3><%= current_customer.last_name %><%= current_customer.first_name %>さんの会員情報</h3>
-<p>（姓）:<%= current_customer.last_name %></p>
-<p>（名）:<%= current_customer.first_name %></p>
-<p>ユーザーネーム:<%= current_customer.user_name %></p>
-<p>メールアドレス:<%= current_customer.email %></p>
-<p>会員ステータス:<%= current_customer.is_deleted %></p>
 
-
-<%= link_to "編集", customer_edit_path %><br />
-<h3>お気に入り一覧</h3>
-<% @bookmark_menu.each do |menu| %>
-  <%= link_to menu_path(menu.id) do %>
-    <%= menu.name %>
-  <% end %>
-  
-  <%= menu.description %><br />
-<% end %>
-
-<h3>投稿したメニュー</h3>
-<% current_customer.menus.each do |menu| %>
-  <%= link_to menu_path(menu.id) do %>
-    <%= menu.name %>
-  <% end %>
-  <%= menu.description %><br />
-<% end %>
+  <div class="row">
+      <div class="col-sm-12 col-md-4 px-5">
+        <h3>会員情報</h3>
+        <table class="table table-bordered">
+          <tr>
+            <th>（姓）:</th>
+            <td><%= current_customer.last_name %></td>
+          </tr>
+          <tr>
+            <th>（名）:</th>
+            <td><%= current_customer.first_name %></td>
+          </tr>
+          <tr>
+            <th>ユーザーネーム:</th>
+            <td><%= current_customer.user_name %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス:</th>
+            <td><%= current_customer.email %></td>
+          </tr>
+        </table>
+          <%= link_to "会員情報を編集", customer_edit_path, class: "btn btn-success mb-5" %>
+      </div>
+      
+      <div class="col-sm-12 col-md-4 px-5">
+        <h3>投稿したメニュー</h3>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>メニュー名</th>
+              <th>説明</th>
+            </tr>
+          </thead>
+          <% current_customer.menus.each do |menu| %>
+            <tbody>
+              <tr>
+                <td>
+                  <%= link_to menu_path(menu.id) do %>
+                    <%= menu.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= menu.description %><br />
+                  <br />
+                  <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %><br />
+                  <%= link_to "詳細を変更",edit_menu_path(menu.id),class: "btn btn-outline-success justify-content-end" %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+      
+      <div class="col-sm-12 col-md-4 px-5 mb-5">
+        <h3>お気に入り一覧</h3>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>メニュー名</th>
+              <th>説明</th>
+            </tr>
+          </thead>
+           <% @bookmark_menu.each do |menu| %>
+            <tbody>
+              <tr>
+                <td>
+                  <%= link_to menu_path(menu.id) do %>
+                    <%= menu.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= menu.description %><br />
+                  <br />
+                  <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+      
+      
+     
