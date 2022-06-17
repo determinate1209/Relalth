@@ -103,11 +103,11 @@
           
          <% elsif @hearing.question1 == 4 %>
           <p class="page-text">肩の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
-          <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "shoulder_fatigue",site_name: "shoulder"), class: "btn btn-info" %>
+          <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "fatigue",site_name: "shoulder"), class: "btn btn-info" %>
           
          <% elsif @hearing.question1 == 5 %>
           <p class="page-text">全身の疲労感にお悩みのあなたにおすすめなメニューはこちらです。</p>
-          <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "body_fatigue",site_name: "body"), class: "btn btn-info" %>
+          <%= link_to "メニューを見る", diagnosis_menus_path(plan_name: "fatigue",site_name: "body"), class: "btn btn-info" %>
         <% end %>
       <% end %>
     <% end %>
