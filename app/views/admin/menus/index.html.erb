@@ -7,7 +7,7 @@
       <div class="d-flex justify-content-end mb-５">
         <div class="form-inline d-block text-right">
           <%= form_tag(admin_menus_path, method: :get) do %>
-            <%= select_tag :site_name, options_for_select({ "全身" => "zenshin", "首" => "neck", "肩" => "shoulder",
+            <%= select_tag :site_name, options_for_select({ "全て" => "ichiran", "全身" => "body", "肩" => "shoulder",
                                                             "腰" => "waist", "脚" => "leg", "膝" => "knee"}),class: "page-text" %>
             <%= button_tag type: 'submit' do %>
               <i class="fas fa-search"></i>

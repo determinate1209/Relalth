@@ -22,7 +22,7 @@ class Public::MenusController < ApplicationController
   
 
   def index
-    if params[:site_name] == "zenshin"
+    if params[:site_name] == "ichiran"
       @menus = Menu.all
     elsif params[:site_name]
       @menu_site_name = Menu.where(site_name: params[:site_name])
@@ -63,7 +63,8 @@ class Public::MenusController < ApplicationController
   
   def diagnosis
     params[:plan_name]
-      @menu_plan_name = Menu.where(plan_name: params[:plan_name])
+    params[:site_name]
+      @menu_plan_name = Menu.where(plan_name: params[:plan_name], site_name: params[:site_name])
       @menus = @menu_plan_name.all
   end
   

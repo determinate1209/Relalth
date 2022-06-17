@@ -5,22 +5,14 @@ class Menu < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   
-  enum plan_name: { leg_pain: 0,
-                    leg_fatigue: 1, 
-                    knee_pain: 2, 
-                    knee_fatigue: 3, 
-                    waist_pain: 4, 
-                    waist_fatigue: 5, 
-                    shoulder_pain: 6,
-                    shoulder_fatigue: 7,
-                    body_pain: 8,
-                    body_fatigue:9}
+  enum plan_name: { pain: 0,
+                    fatigue: 1}
                     
   enum site_name: { leg: 0,
                     knee: 1,
                     waist: 2,
                     shoulder: 3,
-                    neck: 4}
+                    body: 4}
   
   validates :name, presence: true
   validates :description, presence: true

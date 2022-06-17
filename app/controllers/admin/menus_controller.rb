@@ -1,7 +1,7 @@
 class Admin::MenusController < ApplicationController
 
   def index
-    if params[:site_name] == "zenshin"
+    if params[:site_name] == "ichiran"
       @menus = Menu.all
     elsif params[:site_name]
       @menu_site_name = Menu.where(site_name: params[:site_name])

@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container pl-5">
  <h4 class="page-title">あなたにおすすめのメニューは</h4>
 </div>
 <div class="px-md-5">
   <div class="row mx-md-5">
-    <table class="table mx-5 table-hover table-inverse">
+    <div class="col-2 col-sm-1"></div>
+    <table class="table mx-md-5 col-8 table-hover table-inverse">
       <% @menus.each do |menu| %>
         <thead class="thead-ligit">
           <tr>
@@ -22,6 +23,7 @@
         </tr>
       <% end %>
     </table>
+    <div class="col-2"></div>
   </div>
 </div>
   
