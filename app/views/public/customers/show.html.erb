@@ -25,55 +25,63 @@
       
       <div class="col-sm-12 col-md-4 px-5">
         <h3 class="page-title">投稿したメニュー</h3>
-        <table class='table table-hover table-inverse'>
-          <thead>
-            <tr>
-              <th class="page-text">メニュー名</th>
-              <th class="page-text">説明</th>
-            </tr>
-          </thead>
-          <% current_customer.menus.each do |menu| %>
-            <tbody>
+        <% if current_customer.menus.count == 0 %>
+          <p class="page-text">現在、あなたが投稿したメニューはありません。</p>
+        <% else %>
+          <table class='table table-hover table-inverse'>
+            <thead>
               <tr>
-                <td class="page-text">
-                  <%= menu.name %>
-                </td>
-                <td class="page-text">
-                  <%= menu.description %><br />
-                  <br />
-                  <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %><br />
-                  <%= link_to "詳細を変更",edit_menu_path(menu.id),class: "btn btn-outline-success justify-content-end" %>
-                </td>
+                <th class="page-text">メニュー名</th>
+                <th class="page-text">説明</th>
               </tr>
-            </tbody>
-          <% end %>
-        </table>
+            </thead>
+            <% current_customer.menus.each do |menu| %>
+              <tbody>
+                <tr>
+                  <td class="page-text">
+                    <%= menu.name %>
+                  </td>
+                  <td class="page-text">
+                    <%= menu.description %><br />
+                    <br />
+                    <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %><br />
+                    <%= link_to "詳細を変更",edit_menu_path(menu.id),class: "btn btn-outline-success justify-content-end" %>
+                  </td>
+                </tr>
+              </tbody>
+            <% end %>
+          </table>
+        <% end %>
       </div>
       
       <div class="col-sm-12 col-md-4 px-5 mb-5">
         <h3 class="page-title">お気に入り一覧</h3>
-        <table class='table table-hover table-inverse'>
-          <thead>
-            <tr>
-              <th class="page-text">メニュー名</th>
-              <th class="page-text">説明</th>
-            </tr>
-          </thead>
-           <% @bookmark_menu.each do |menu| %>
-            <tbody>
+        <% if @bookmark_menu.count == 0 %>
+          <p class="page-text">現在、お気に入りに登録しているメニューはありません。</p>
+        <% else %>
+          <table class='table table-hover table-inverse'>
+            <thead>
               <tr>
-                <td class="page-text">
-                  <%= menu.name %>
-                </td>
-                <td class="page-text">
-                  <%= menu.description %><br />
-                  <br />
-                  <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
-                </td>
+                <th class="page-text">メニュー名</th>
+                <th class="page-text">説明</th>
               </tr>
-            </tbody>
-          <% end %>
-        </table>
+            </thead>
+             <% @bookmark_menu.each do |menu| %>
+              <tbody>
+                <tr>
+                  <td class="page-text">
+                    <%= menu.name %>
+                  </td>
+                  <td class="page-text">
+                    <%= menu.description %><br />
+                    <br />
+                    <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
+                  </td>
+                </tr>
+              </tbody>
+            <% end %>
+          </table>
+        <% end %>
       </div>
       
   </div>

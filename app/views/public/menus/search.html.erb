@@ -4,22 +4,26 @@
 <div class="px-md-5">
   <div class="row mx-md-5">
     <table class="table mx-5 table-hover table-inverse">
-      <% @menus.each do |menu| %>
-        <thead class="thead-ligit">
-          <tr>
-            <th class="page-text"style="width: 50%;">メニュー名:　<%= menu.name %></th>
-            <th class="text-right page-text" style="width: 50%;">部位:<%= menu.site_name_i18n %></th>
-          </tr>
-        </thead>
-        
-        <tbody>
-        <tr>
-          <td class="text-center page-text"><%= menu.description %></td>
-          <td class="text-right">
-          <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
-          </td>
-          
-        </tr>
+      <% if @menus.count == 0 %>
+        <p class="page-text mx-5">検索結果がありませんでした。</p>
+      <% else %>
+        <% @menus.each do |menu| %>
+            <thead class="thead-ligit">
+              <tr>
+                <th class="page-text"style="width: 50%;">メニュー名:　<%= menu.name %></th>
+                <th class="text-right page-text" style="width: 50%;">部位:<%= menu.site_name_i18n %></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+            <tr>
+              <td class="text-center page-text"><%= menu.description %></td>
+              <td class="text-right">
+              <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
+              </td>
+              
+            </tr>
+        <% end %>
       <% end %>
     </table>
   </div>
