@@ -9,7 +9,7 @@ class Customer < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :user_name, presence: true
+  validates :last_name, presence: true,length: {maximum: 50}
+  validates :first_name, presence: true,length: {maximum: 50}
+  validates :user_name, presence: true,length: {maximum: 50}
 end

@@ -14,8 +14,8 @@ class Menu < ApplicationRecord
                     shoulder: 3,
                     body: 4}
   
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true,length: {maximum: 50}
+  validates :description, presence: true,length: {maximum: 250}
   
   def bookmarked_by?(customer)
     bookmarks.exists?(customer_id: customer.id)
