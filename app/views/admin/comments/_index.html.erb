@@ -1,6 +1,6 @@
-<h3 class="my-3 page-title"><%= menu.comments.count %>件のコメント</h3>
+<h3 class="my-3 page-title">コメント一覧</h3>
 <table class="table table-hover table-inverse">
-  <% menu.comments.each do |comment| %>
+  <% comments.each do |comment| %>
   <tr>
     <td class="text-left page-text">
       <%= link_to admin_customer_path(comment.customer) do %>

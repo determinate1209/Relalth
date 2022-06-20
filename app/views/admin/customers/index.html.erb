@@ -1,4 +1,4 @@
-<containar>
+<div class="containar">
   <div class="row  offset-1 mt-5 mb-3">
     <div class="col-lg-6">
       <h3 class="page-title">会員一覧</h3>
@@ -6,7 +6,7 @@
   </div>
 
   <div class="row text-center">
-    <div class="col-lg-10 offset-1">
+    <div class="col-md-10 offset-1">
       <table class="table table-bordered table-hover table-background">
         <thead class="thead-light">
           <tr>
@@ -34,6 +34,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @customers %>
     </div>
   </div>
-<containar>
+</div>

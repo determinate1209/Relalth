@@ -2,20 +2,20 @@ class Admin::MenusController < ApplicationController
 
   def index
     if params[:site_name] == "ichiran"
-      @menus = Menu.all
+      @menus = Menu.all.page(params[:page]).per(4)
     elsif params[:site_name]
       @menu_site_name = Menu.where(site_name: params[:site_name])
-      @menus = @menu_site_name.all
+      @menus = @menu_site_name.all.page(params[:page]).per(4)
     else
-      @menus = Menu.all
+      @menus = Menu.all.page(params[:page]).per(4)
     end
   end
 
 
   def show
     @menu = Menu.find(params[:id])
-    @menu_items = @menu.menu_items.order("stretch_number")
-    @menu_item = MenuItem.new
+    @menu_items = @menu.menu_items.order("stretch_number").page(params[:page_1]).per(4)
+    @comments = @menu.comments.order(created_at: :desc).page(params[:page_2]).per(8)
   end
 
   def edit

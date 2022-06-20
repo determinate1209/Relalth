@@ -1,6 +1,6 @@
 
   <div class="row">
-      <div class="col-sm-12 col-md-4 px-5">
+      <div class="col-sm-12 col-md-4 px-5 mb-3">
         <h3 class="page-title">会員情報</h3>
         <table class="table table-bordered">
           <tr>
@@ -23,9 +23,9 @@
           <%= link_to "会員情報を編集", customer_edit_path, class: "btn btn-success mb-5" %>
       </div>
       
-      <div class="col-sm-12 col-md-4 px-5">
+      <div class="col-sm-12 col-md-4 px-5 mb-3">
         <h3 class="page-title">投稿したメニュー</h3>
-        <% if current_customer.menus.count == 0 %>
+        <% if @menus.count == 0 %>
           <p class="page-text">現在、あなたが投稿したメニューはありません。</p>
         <% else %>
           <table class='table table-hover table-inverse'>
@@ -35,7 +35,7 @@
                 <th class="page-text">説明</th>
               </tr>
             </thead>
-            <% current_customer.menus.each do |menu| %>
+            <% @menus.each do |menu| %>
               <tbody>
                 <tr>
                   <td class="page-text">
@@ -51,10 +51,11 @@
               </tbody>
             <% end %>
           </table>
+          <%= paginate @menus, :param_name => 'page_1' %>
         <% end %>
       </div>
       
-      <div class="col-sm-12 col-md-4 px-5 mb-5">
+      <div class="col-sm-12 col-md-4 px-5 mb-3">
         <h3 class="page-title">お気に入り一覧</h3>
         <% if @bookmark_menu.count == 0 %>
           <p class="page-text">現在、お気に入りに登録しているメニューはありません。</p>
@@ -81,6 +82,7 @@
               </tbody>
             <% end %>
           </table>
+          <%= paginate @bookmark_menu, :param_name => 'page_2' %>
         <% end %>
       </div>
       

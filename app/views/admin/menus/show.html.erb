@@ -9,11 +9,13 @@
         <div class="admin_menu_items_area">
           <%= render "admin/menu_items/index", menu: @menu, menu_items: @menu_items %>
         </div>
+        <%= paginate @menu_items, :param_name => 'page_1' %>
     </div>
     <div class="col-sm-12 col-md-3">
       <div class="admin_comments_area">
-        <%= render "admin/comments/index", menu: @menu %>
+        <%= render "admin/comments/index", menu: @menu, comments: @comments %>
       </div>
+      <%= paginate @comments, :param_name => 'page_2' %>
     </div>
   </div>
 </div>
