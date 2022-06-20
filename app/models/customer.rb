@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   has_many :menus, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_menus, through: :bookmarks, source: :menu
   
   validates :last_name, presence: true,length: {maximum: 50}
   validates :first_name, presence: true,length: {maximum: 50}

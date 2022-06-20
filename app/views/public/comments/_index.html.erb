@@ -1,6 +1,6 @@
-<h3 class="my-3 page-text"><%= menu.comments.count %>件のコメント</h3>
+<h3 class="my-3 page-text">コメント一覧</h3>
 <table class="table table-hover table-inverse">
-  <% menu.comments.each do |comment| %>
+  <% comments.each do |comment| %>
   <tr>
     <td class="text-left page-text"><%= comment.customer.user_name %></td>
     <td class="text-right page-text">
@@ -13,3 +13,4 @@
   </tr>
   <% end %>
 </table>
+

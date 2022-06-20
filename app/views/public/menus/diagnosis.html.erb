@@ -1,13 +1,12 @@
-<div class="container pl-5">
+<div class="container pl-5 mt-3">
  <h4 class="page-title">あなたにおすすめのメニューは</h4>
 </div>
 <div class="px-md-5">
-  <div class="row mx-md-5">
-    <div class="col-2 col-sm-1"></div>
+  <div class="row mx-md-5 px-md-5">
     <% if @menus.count == 0 %>
       <p class="page-text">まだメニューが投稿されていません。<br />投稿されるまで今しばらお待ちくださいますようお願い申し上げます。</p>
     <% else %>
-      <table class="table mx-md-5 col-8 table-hover table-inverse">
+      <table class="table mx-md-5 table-hover table-inverse">
         <% @menus.each do |menu| %>
           <thead class="thead-ligit">
             <tr>
@@ -26,8 +25,10 @@
           </tr>
         <% end %>
       </table>
+      <div class="col-12">
+      <%= paginate @menus %>
+      </div>
     <% end %>
-    <div class="col-2"></div>
   </div>
 </div>
   

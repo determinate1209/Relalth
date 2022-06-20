@@ -4,9 +4,9 @@ class Public::CustomersController < ApplicationController
   
   
   def show
-    bookmark= Bookmark.where(customer_id: current_customer.id
-    ).pluck(:menu_id)
-    @bookmark_menu = Menu.find(bookmark)
+    @bookmark_menu = current_customer.bookmark_menus.includes(:customer).order(created_at: :desc).page(params[:page_2]).per(3)
+    
+    @menus = current_customer.menus.all.page(params[:page_1]).per(3)
   end
   
   
