@@ -4,7 +4,9 @@
 <div class="px-md-5">
   <div class="row mx-md-5 px-md-5">
     <% if @menus.count == 0 %>
-      <p class="page-text">まだメニューが投稿されていません。<br />投稿されるまで今しばらお待ちくださいますようお願い申し上げます。</p>
+    <div class="col-12 px-5">
+      <p class="page-text mx-4">まだメニューが投稿されていません。<br />投稿されるまで今しばらお待ちくださいますようお願い申し上げます。</p>
+    </div>
     <% else %>
       <table class="table mx-md-5 table-hover table-inverse">
         <% @menus.each do |menu| %>
