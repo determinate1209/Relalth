@@ -4,7 +4,9 @@
 <div class="px-md-5">
   <div class="row mx-md-5">
     <% if @menus.count == 0 %>
+    <div class="mx-5">
       <p class="page-text mx-5">検索結果がありませんでした。</p>
+    </div>
     <% else %>
       <table class="table mx-5 table-hover table-inverse">
         <% @menus.each do |menu| %>

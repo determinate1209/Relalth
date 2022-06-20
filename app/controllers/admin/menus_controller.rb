@@ -41,7 +41,7 @@ class Admin::MenusController < ApplicationController
   
   def search
     if params[:name].present?
-      @menus = Menu.where('name LIKE(?) OR description LIKE(?)', "%#{params[:name]}%", "%#{params[:name]}%")
+      @menus = Menu.where('name LIKE(?) OR description LIKE(?)', "%#{params[:name]}%", "%#{params[:name]}%").page(params[:page]).per(4)
     else
       @menus = Menu.none
       
