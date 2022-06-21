@@ -20,7 +20,7 @@
    <%= f.select :plan_name, Menu.plan_names_i18n.keys.map { |k| [t("enums.menu.plan_name.#{k}"), k] },class: "form-select form-select form-select-lg mb-3 page-text" %><br />
   </div>
  
-  <%= f.submit "変更を保存",class: "btn btn-success" %>
+  <%= f.submit "変更を保存",class: "btn btn-success btn-text %>
   
   <% end %>
  </div>

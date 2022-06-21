@@ -17,12 +17,12 @@
             <%= f.password_field :password, autocomplete: "current-password", class: "mb-3 col-md-7 form-control page-text" %>
           </div>
            <div class="actions form-group row">
-            <%= f.submit "ログイン", class: "mb-5 btn btn-primary col-md-3 offset-md-3" %>
+            <%= f.submit "ログイン", class: "mb-5 btn btn-primary col-md-3 offset-md-3 btn-text" %>
           </div>
         <% end %>
       </div>
       <div class="offset-md-2">
-        <p> <%= link_to "会員登録がお済みでない方はこちら", new_customer_registration_path %></p>
+        <p> <%= link_to "会員登録がお済みでない方はこちら", new_customer_registration_path, class: "btn-text" %></p>
       </div>
     </div>
   </div>

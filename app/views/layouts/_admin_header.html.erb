@@ -10,13 +10,19 @@
       <div class= "d-block">
         <ul class="navbar-nav ml-auto">
           <li>
-            <%= link_to "会員一覧", admin_customers_path, class: 'nav-link mx-2', style:"color:white;" %>
+            <%= link_to admin_customers_path, class: 'nav-link mx-2 btn-text', style: "color:white;" do %>
+              <i class="fas fa-users"></i>会員一覧
+            <% end %>
           </li>
           <li>
-            <%= link_to "メニュー一覧", admin_menus_path, class: 'nav-link mx-2', style:"color:white;" %>
+            <%= link_to admin_menus_path, class: 'nav-link mx-2 btn-text', style: "color:white;" do %>
+              <i class="fas fa-clipboard-list"></i>メニュー一覧
+            <% end %>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link mx-2', style:"color:white;" %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link mx-2 btn-text', style: "color:white;" do %>
+              <i class="fas fa-sign-out-alt"></i>ログアウト
+            <% end %>
           </li>
         </ul>
         <div class="form-inline d-block text-right">  

@@ -17,9 +17,9 @@
         </td>
         <td class="page-text"><%= customer.email %></td>
         <% if customer.is_deleted == true %>
-          <td class="text-danger">退会</td>
+          <td class="text-danger btn-text">退会</td>
         <% else %>
-          <td class="text-success">有効</td>
+          <td class="text-success btn-text">有効</td>
         <% end %>
       </tr>
     <% end %>

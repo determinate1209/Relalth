@@ -1,7 +1,7 @@
 
 <% if menu.bookmarked_by?(current_customer) %>
-    <%= link_to "登録済み", menu_bookmarks_path(menu), method: :delete,remote: true, class: "btn btn-outline-secondary" %>
+    <%= link_to "登録済み", menu_bookmarks_path(menu), method: :delete,remote: true, class: "btn btn-outline-secondary btn-text" %>
 <% else %>
-    <%= link_to "お気に入り登録",menu_bookmarks_path(menu), method: :post, remote: true, class: "btn btn-outline-warning"  %>
+    <%= link_to "お気に入り登録",menu_bookmarks_path(menu), method: :post, remote: true, class: "btn btn-outline-warning btn-text"  %>
 <% end %>
 

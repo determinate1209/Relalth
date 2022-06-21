@@ -1,4 +1,4 @@
-<h3 class="my-3 page-title">コメント一覧</h3>
+
 <table class="table table-hover table-inverse">
   <% comments.each do |comment| %>
   <tr>
@@ -9,7 +9,7 @@
     </td>
     <td class="text-right page-text">
       <%= comment.comment %><br />
-      <%= link_to "削除", admin_menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true , "data-confirm" => "本当に消しますか？"%>
+      <%= link_to "削除", admin_menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true , "data-confirm" => "本当に消しますか？", class: "btn-text" %>
     </td>
   </tr>
   <% end %>

@@ -12,8 +12,8 @@
         
         <% if menu.customer == current_customer %>
           <p class="text-right mt-4">
-            <%= link_to "編集する", edit_menu_menu_item_path(menu_item.menu_id, menu_item.id),class: "btn btn-outline-success justify-content-end" %>
-            <%= link_to "削除", menu_menu_item_path(menu_item.menu_id, menu_item.id), method: :delete, remote: true, "data-confirm" => "本当に消しますか？",class: "btn btn-outline-danger" %>
+            <%= link_to "編集する", edit_menu_menu_item_path(menu_item.menu_id, menu_item.id),class: "btn btn-outline-success justify-content-end btn-text" %>
+            <%= link_to "削除", menu_menu_item_path(menu_item.menu_id, menu_item.id), method: :delete, remote: true, "data-confirm" => "本当に消しますか？",class: "btn btn-outline-danger btn-text" %>
           </p>
         <% end %>
       </td>

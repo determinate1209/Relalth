@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ 
+ 
  .navbar {
    background-color: #34485e;
    position: fixed;
@@ -34,12 +36,16 @@
  
  .page-title {
   color: #3c7b9d;
+  font-family: 'Sawarabi Gothic', sans-serif;
  }
  
  .page-text {
   color: #3c7b9d;
+  font-family: 'Sawarabi Gothic', sans-serif;
  }
-
+ .btn-text {
+  font-family: 'Sawarabi Gothic', sans-serif;
+ }
 .alert {
  background-color:#5b9f8a ;
  color: #fff;
@@ -59,6 +65,7 @@ footer {
 
 .footer-text {
  color: #fff;
+ font-family: 'Sawarabi Gothic', sans-serif;
 }
 
 

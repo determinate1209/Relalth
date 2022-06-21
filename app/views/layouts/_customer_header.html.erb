@@ -10,16 +10,24 @@
       <div class= "d-block">
         <ul class="navbar-nav">
           <li>
-            <%= link_to "診断開始", new_hearing_path, class: 'nav-link mx-2', style:"color:white;" %>
+            <%= link_to new_hearing_path, class: 'nav-link mx-2 btn-text', style: "color:white;" do %>
+              <i class="fas fa-stethoscope"></i>診断開始
+            <% end %>
           </li>
           <li>
-            <%= link_to "マイページ", mypage_path, class: 'nav-link mx-2', style:"color:white;" %>
+            <%= link_to mypage_path, class: 'nav-link mx-2 btn-text', style: "color:white;" do %>
+              <i class="fas fa-user"></i>マイページ
+            <% end %>
           </li>
           <li>
-            <%= link_to "メニュー一覧", menus_path, class: 'nav-link mx-2', style:"color:white;" %>
+            <%= link_to menus_path, class: 'nav-link mx-2 btn-text', style: "color:white;" do %>
+              <i class="fas fa-clipboard-list"></i>メニュー一覧
+            <% end %>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link mx-2', style:"color:white;" %>
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link mx-2 btn-text', style: "color:white;" do %>
+              <i class="fas fa-sign-out-alt"></i>ログアウト
+            <% end %>
           </li>
         </ul>
         <div class="form-inline d-block text-right">

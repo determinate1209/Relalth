@@ -9,10 +9,10 @@
         </p>
         <div class="btn-wrapper col-11 mx-auto">
           <div class="row">
-            <%= link_to "会員一覧", admin_customers_path, class: "btn btn-info btn-sm btn-block mb-3" %>
+            <%= link_to "会員一覧", admin_customers_path, class: "btn btn-info btn-sm btn-block mb-3 btn-text" %>
           </div>
           <div class="row">
-            <%= link_to "メニュー一覧", admin_menus_path, class: "btn btn-success btn-sm btn-block mb-3" %>
+            <%= link_to "メニュー一覧", admin_menus_path, class: "btn btn-success btn-sm btn-block mb-3 btn-text" %>
           </div>
         </div>
     </div>
@@ -29,21 +29,22 @@
         </p>
         <div class="btn-wrapper col-11 mx-auto">
           <div class="row">
-            <%= link_to "診断開始する", new_hearing_path, class: "btn btn-secondary btn-sm btn-block mb-3"  %>
+            <%= link_to "診断開始する", new_hearing_path, class: "btn btn-secondary btn-sm btn-block mb-3 btn-text"  %>
           </div>
         </div>
         
         <% if current_customer == nil %>
           <p class="page-text">
-            また、会員登録していただくと、ストレッチのメニューをお気に入り登録をすることができたり、<br />
+            また、会員登録していただくと、<br />
+            ストレッチのメニューをお気に入り登録をすることができたり、<br />
             コメントをすることができるようになります。
           </p>
            <div class="btn-wrapper col-11 mx-auto">
             <div class="row">
-              <%= link_to "ログイン", new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3"  %><br />
+              <%= link_to "ログイン", new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 btn-text"  %><br />
             </div>
             <div class="row">
-              <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-3"  %>
+              <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-3 btn-text"  %>
             </div>
           </div>
         <% else %>
@@ -53,10 +54,10 @@
           </p>
           <div class="btn-wrapper col-11 mx-auto">
             <div class="row">
-              <%= link_to "マイページ", mypage_path, class: "btn btn-info btn-sm btn-block mb-3" %>
+              <%= link_to "マイページ", mypage_path, class: "btn btn-info btn-sm btn-block mb-3 btn-text" %>
             </div>
             <div class="row">
-              <%= link_to "メニュー一覧", menus_path, class: "btn btn-success btn-sm btn-block mb-3" %>
+              <%= link_to "メニュー一覧", menus_path, class: "btn btn-success btn-sm btn-block mb-3 btn-text" %>
             </div>
         <% end %>
       <% end %>

@@ -11,9 +11,9 @@
     <tr>
       <td class="text-center page-text"><%= menu.description %></td>
       <td class="text-right page-text">
-      <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
+      <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end btn-text" %>
       <% if menu.customer == current_customer %>
-        <%= link_to "詳細を変更",edit_menu_path(menu.id),class: "btn btn-outline-success justify-content-end" %>
+        <%= link_to "詳細を変更",edit_menu_path(menu.id),class: "btn btn-outline-success justify-content-end btn-text" %>
       <% end %>
       </td>
       

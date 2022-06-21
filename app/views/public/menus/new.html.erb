@@ -21,7 +21,7 @@
    <%= f.select :plan_name, Menu.plan_names_i18n.keys.map { |k| [t("enums.menu.plan_name.#{k}"), k] },class: "page-text" %><br />
   </div>
   
-   <%= f.submit "メニューを作成",class: "btn btn-success" %>
+   <%= f.submit "メニューを作成",class: "btn btn-success btn-text" %>
  
   <% end %>
  </div>

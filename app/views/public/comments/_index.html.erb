@@ -1,4 +1,4 @@
-<h3 class="my-3 page-text">コメント一覧</h3>
+
 <table class="table table-hover table-inverse">
   <% comments.each do |comment| %>
   <tr>
@@ -7,7 +7,7 @@
       <%= comment.comment %><br />
       <% if comment.customer == current_customer || menu.customer == current_customer %>
         <!--コメントした人または、このメニューを投稿した人-->
-        <%= link_to "削除", menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true %>
+        <%= link_to "削除", menu_comment_path(comment.menu_id,comment.id), method: :delete, remote: true, class: "btn-text" %>
       <% end %>
     </td>
   </tr>
