@@ -1,0 +1,5 @@
+<div class="menu_items_area">
+  <%= render "public/menu_items/index", menu_items: @menu_items, menu: @menu %> 
+</div>
+
+<%= paginate menu_items, remote: true, :param_name => 'page_1' %>

@@ -1,0 +1,6 @@
+$('#menu-items-index').html("<%= escape_javascript(render "public/menu_items/menu_items_page", menu_items: @menu_items, menu: @menu) %>");
+
+
+$('#comments-index').html("<%= escape_javascript(render "public/comments/comments_page", comments: @comments, menu: @menu) %>");
+
+

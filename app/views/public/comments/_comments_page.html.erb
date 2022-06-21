@@ -1,0 +1,4 @@
+<div class="comments_area">
+  <%= render "public/comments/index", comments: @comments, menu: @menu %>
+</div>
+<%= paginate comments, :param_name => 'page_2', remote: true %>

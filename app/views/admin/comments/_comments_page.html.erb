@@ -1,0 +1,5 @@
+<div class="admin_comments_area">
+  <%= render "admin/comments/index", menu: @menu, comments: @comments %>
+</div>
+
+<%= paginate comments, :param_name => 'page_2' %>

@@ -1,23 +1,23 @@
 <div class='row'>
  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto"> 
    <%= render 'layouts/errors', obj: @customer %>
-    <h3>会員情報編集</h3>
+    <h3 class="page-title">会員情報編集</h3>
       <%= form_with model: @customer, url: customer_path(@customer), method: :patch, local: true do |f| %>
         <div class="form-group">
-          <%= f.label :名前 %>
-              <%= f.label :（姓） %>
-              <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
-              <%= f.label :（名）%>
-          	  <%= f.text_field :first_name, class: "form-control" %>
+          <%= f.label :名前,class: "page-text" %>
+              <%= f.label :（姓）,class: "page-text" %>
+              <%= f.text_field :last_name, class: "form-control page-text " %>
+              <%= f.label :（名）,class: "page-text"%>
+          	  <%= f.text_field :first_name, class: "form-control page-text" %>
         </div>
         <div class="form-group">
-          <%= f.label :user_name, 'コメント投稿時の表示名' %>
-          <%= f.text_field :user_name, class: "form-control" %>
+          <%= f.label :user_name, 'コメント投稿時の表示名',class: "page-text" %>
+          <%= f.text_field :user_name, class: "form-control page-text" %>
         </div>
     
         <div class="form-group">
-          <%= f.label :email, 'メールアドレス' %>
-          <%= f.text_field :email, autocomplete: "email" , class: "form-control"%>
+          <%= f.label :email, 'メールアドレス',class: "page-text" %>
+          <%= f.text_field :email, autocomplete: "email" , class: "form-control page-text"%>
         </div>
     
         <div>

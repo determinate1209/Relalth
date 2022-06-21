@@ -1,7 +1,7 @@
 <%= render "layouts/errors", obj: @menu %>
 
   <div class="row pt-5">
-      <div class="col-sm-12 col-md-3 px-5 mb-3">
+      <div class="col-sm-12 col-md-3 px-5 mb-5">
         <% if @menu.customer == current_customer %>
           <%= link_to "このページの全てを削除", menu_path(@menu),  method: :delete,
             "data-confirm" => "メニュー、投稿したストレッチ、コメントが全て消えてしまいます。\r\n本当に削除しますか？",class: "btn btn-danger" %>
@@ -10,12 +10,13 @@
           </div>
         <% end %>
       </div>
-      <div class="col-sm-12 col-md-6 px-5">
+      <div class="col-sm-12 col-md-6 px-5 mb-5">
         <h3 class="page-title"><%= @menu.name %></h3>
-        <div class="menu_items_area">
-          <%= render "public/menu_items/index", menu_items: @menu_items, menu: @menu %>
+        
+        <div id="menu-items-index">
+          <%= render "public/menu_items/menu_items_page", menu_items: @menu_items, menu: @menu %>
         </div>
-        <%= paginate @menu_items, :param_name => 'page_1' %>
+        
       </div>
       
       
@@ -34,9 +35,9 @@
           <p>会員登録またはログインしていただくと、お気に入り登録やコメント投稿ができるようになります。</p>
         <% end %>
         
-        <div class="comments_area">
-          <%= render "public/comments/index", comments: @comments, menu: @menu %>
+        <div id="comments-index">
+          <%= render "public/comments/comments_page", comments: @comments, menu: @menu %>
         </div>
-        <%= paginate @comments, :param_name => 'page_2' %>
+      
       </div>
   </div>  

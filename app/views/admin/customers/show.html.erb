@@ -36,31 +36,9 @@
     <% if @customer.menus.count == 0 %>
       <p class="page-text">現在、<%= @customer.last_name+@customer.first_name %>さんが投稿したメニューはありません。</p>
     <% else %>
-      <table class='table table-hover table-inverse'>
-        <thead>
-          <tr>
-            <th class="page-text">メニュー名</th>
-            <th class="page-text">説明</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @menus.each do |menu| %>
-            <tr>
-              <td class="page-text">
-                  <%= menu.name %>
-              </td>
-              <td class="page-text">
-                <%= menu.description %><br />
-                <br />
-                <%= link_to "内容を見る",admin_menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
-                <%= link_to "詳細を変更", edit_admin_menu_path(menu.id),class: "btn btn-outline-success justify-content-end" %>
-                
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @menus %>
+      <div id="customer-menus-index">
+        <%= render "admin/menus/index", menus: @menus %>
+      </div>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,23 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th class="page-text">メニュー名</th>
+      <th class="page-text">説明</th>
+    </tr>
+  </thead>
+   <% bookmark_menu.each do |menu| %>
+    <tbody>
+      <tr>
+        <td class="page-text">
+          <%= menu.name %>
+        </td>
+        <td class="page-text">
+          <%= menu.description %><br />
+          <br />
+          <%= link_to "内容を見る", menu_path(menu.id),class: "btn btn-outline-info justify-content-end" %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+<%= paginate bookmark_menu, :param_name => 'page_1' %>

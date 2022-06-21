@@ -5,7 +5,11 @@ class Public::MenuItemsController < ApplicationController
   
   def create
     @menu = Menu.find(params[:menu_id])
-    @menu_items = @menu.menu_items.order("stretch_number").page(params[:page_1]).per(4)
+    @menu_items = @menu.menu_items.order("stretch_number").page(params[:page_1]).per(3)
+    respond_to do |format|
+      format.html
+      format.js
+    end
     menu_item = MenuItem.new(menu_item_params)
     menu_item.menu_id = @menu.id
     if menu_item.save
@@ -32,7 +36,11 @@ class Public::MenuItemsController < ApplicationController
   def destroy
     refroute = Rails.application.routes.recognize_path(request.referrer)
     @menu = Menu.find(refroute[:id])
-    @menu_items = @menu.menu_items.order("stretch_number").page(params[:page_1]).per(4)
+    @menu_items = @menu.menu_items.order("stretch_number").page(params[:page_1]).per(3)
+    respond_to do |format|
+      format.html
+      format.js
+    end
     @menu_item = MenuItem.find(params[:id])
     @menu_item.destroy
     

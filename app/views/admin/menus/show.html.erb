@@ -1,24 +1,23 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-3">
+
+  <div class="row pt-5">
+    <div class="col-sm-12 col-md-3 px-5 mb-5">
       <%= link_to "このページの全てを削除", admin_menu_path(@menu),  method: :delete,
         "data-confirm" => "メニュー、投稿したストレッチ、コメントが全て消えてしまいます。\r\n本当に削除しますか？", class: "btn btn-danger" %>
     </div>                                        
-    <div class="col-sm-12 col-md-6 px-5">
+    <div class="col-sm-12 col-md-6 px-5 mb-5">
       <h3 class="page-title"><%= @menu.name %></h3>
-        <div class="admin_menu_items_area">
+        <div id="admin-menu_items-index" class="admin_menu_items_area">
           <%= render "admin/menu_items/index", menu: @menu, menu_items: @menu_items %>
         </div>
-        <%= paginate @menu_items, :param_name => 'page_1' %>
     </div>
-    <div class="col-sm-12 col-md-3">
-      <div class="admin_comments_area">
-        <%= render "admin/comments/index", menu: @menu, comments: @comments %>
+    <div class="col-sm-12 col-md-3 px-5">
+      <div id="admin-comments-index">
+        <%= render "admin/comments/comments_page", menu: @menu, comments: @comments %>
       </div>
-      <%= paginate @comments, :param_name => 'page_2' %>
+      
     </div>
   </div>
-</div>
+
 
 
 

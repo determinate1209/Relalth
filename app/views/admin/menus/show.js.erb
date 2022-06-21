@@ -1,3 +1,3 @@
-$(".admin_menu_items_area").html("<%= j(render 'admin/menu_items/index',  menu: @menu, menu_items: @menu_items) %>")
-
 $('#admin-menu_items-index').html("<%= escape_javascript(render "admin/menu_items/index", menu: @menu, menu_items: @menu_items) %>");
+
+$('#admin-comments-index').html("<%= escape_javascript(render "admin/comments/comments_page", menu: @menu, comments: @comments) %>");

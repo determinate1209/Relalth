@@ -1,0 +1,3 @@
+$('#customer-menus-index').html("<%= escape_javascript(render "public/menus/index", menus: @menus) %>");
+
+$('#bookmark-menus-index').html("<%= escape_javascript(render "public/bookmarks/index", bookmark_menu: @bookmark_menu) %>");
