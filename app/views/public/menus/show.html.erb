@@ -11,18 +11,11 @@
         <% end %>
       </div>
       <div class="col-sm-12 col-md-6 px-5 mb-5">
-        <h3 class="page-title"><%= @menu.name %></h3>
-        <% if @menu_items.count == 0 %>
-          <p class="page-text text-center">
-            現在、ストレッチは投稿されておりません。<br />
-            今しばらくお待ちください。
-          </p>
-        <% else %>
-          <div id="menu-items-index">
-            <%= render "public/menu_items/menu_items_page", menu_items: @menu_items, menu: @menu %>
-          </div>
-        <% end %>
-        
+       
+        <div id="menu-items-index">
+          <%= render "public/menu_items/menu_items_page", menu_items: @menu_items, menu: @menu %>
+        </div>
+      
       </div>
       
       
@@ -41,14 +34,10 @@
           <p class="page-text">会員登録またはログインしていただくと、お気に入り登録やコメント投稿ができるようになります。</p>
         <% end %>
         
-        <h3 class="my-5 page-text">コメント一覧</h3>
-        <% if @comments.count == 0 %>
-          <p class="page-text">現在、このメニューにコメントはありません。</p>
-        <% else %>
-          <div id="comments-index">
-            <%= render "public/comments/comments_page", comments: @comments, menu: @menu %>
-          </div>
-        <% end %>
+        
+        <div id="comments-index">
+          <%= render "public/comments/comments_page", comments: @comments, menu: @menu %>
+        </div>
       
       </div>
   </div>  

@@ -18,14 +18,9 @@
       <% end %>
     </div>
     <div class="col-sm-12 col-md-3 px-5">
-      <h3 class="my-3 page-title">コメント一覧</h3>
-      <% if @comments.count == 0 %>
-        <p class="page-text">現在、このメニューにコメントはありません。</p>
-      <% else %>
-        <div id="admin-comments-index">
-          <%= render "admin/comments/comments_page", menu: @menu, comments: @comments %>
-        </div>
-      <% end %>
+      <div id="admin-comments-index">
+        <%= render "admin/comments/comments_page", menu: @menu, comments: @comments %>
+      </div>
       
     </div>
   </div>
