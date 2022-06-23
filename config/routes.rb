@@ -27,14 +27,14 @@ Rails.application.routes.draw do
     resources :plans, only: [:show]
     
     resources :hearings, only: [:new, :show, :create]#診断機能
-    resources :customers, only: [:update] do #顧客会員情報機能
+    resource :customers, only: [:update] do #顧客会員情報機能
       get :bookmarks, on: :collection 
     end
     get 'customer/edit'  => 'customers#edit'
     patch 'customers/withdraw' => 'customers#withdraw'#退会処理
     get 'mypage' => 'customers#show'
     get 'customers/quit' => 'customers#quit'#退会確認ページ
-    get 'customers' => 'customers#edit'
+    patch 'customer' => 'customers#update'
     
   end
   

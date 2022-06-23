@@ -9,6 +9,19 @@ class Public::CustomersController < ApplicationController
     @menus = current_customer.menus.all.page(params[:page]).per(3)
   end
   
+  def withdraw
+    @customer = Customer.find(current_customer.id)
+    if @customer.update(is_deleted: true)
+      #sessionIDのresetを行う
+      reset_session
+      flash[:notice] = "退会処理を実行しました。"
+      redirect_to root_path
+    else
+      flash[:notice] = " 退会に失敗しました。"
+      render :show
+    end
+  end
+  
   
 
   def edit
@@ -25,23 +38,12 @@ class Public::CustomersController < ApplicationController
   def quit
     
   end
-  
-  def withdraw
-    @customer = Customer.find(current_customer.id)
-    @customer.update(is_deleted: true)
-    #sessionIDのresetを行う
-    reset_session
-    flash[:notice] = "退会処理を実行しました。"
-    redirect_to root_path
-  end
+
   
   private
   
   def customer_params
-    params.require(:customer).permit(:last_name,
-                                     :first_name,
-                                     :email,
-                                     :user_name)
+    params.require(:customer).permit(:last_name,:first_name,:email,:user_name)
   end
   
   def move_to_signed_in
