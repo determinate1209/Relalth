@@ -6,16 +6,12 @@ class Public::MenuItemsController < ApplicationController
   def create
     @menu = Menu.find(params[:menu_id])
     @menu_items = @menu.menu_items.order("stretch_number").page(params[:page_1]).per(3)
-    respond_to do |format|
-      format.html
-      format.js
-    end
     menu_item = MenuItem.new(menu_item_params)
     menu_item.menu_id = @menu.id
     if menu_item.save
-      
+      redirect_to menu_path(@menu.id)
     else
-      flash[:notice] = "ストレッチの説明を記入してください"
+      flash[:notice] = "250文字以内のストレッチの説明を記入してください"
       redirect_to menu_path(@menu.id)
     end
     
@@ -37,10 +33,6 @@ class Public::MenuItemsController < ApplicationController
     refroute = Rails.application.routes.recognize_path(request.referrer)
     @menu = Menu.find(refroute[:id])
     @menu_items = @menu.menu_items.order("stretch_number").page(params[:page_1]).per(3)
-    respond_to do |format|
-      format.html
-      format.js
-    end
     @menu_item = MenuItem.find(params[:id])
     @menu_item.destroy
     

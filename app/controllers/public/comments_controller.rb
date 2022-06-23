@@ -7,7 +7,7 @@ class Public::CommentsController < ApplicationController
     if comment.save
       
     else
-      flash[:notice] = "コメント内容を記入してください。"
+      flash[:notice] = "250文字以内のコメント内容を記入してください。"
       redirect_to menu_path(@menu.id)
     end
   end

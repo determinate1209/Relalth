@@ -1,7 +1,7 @@
 class MenuItem < ApplicationRecord
   belongs_to :menu
   
-  validates :description, presence: true,length: {maximum: 400}
+  validates :description, presence: true,length: {maximum: 250}
   
   has_one_attached :image
   

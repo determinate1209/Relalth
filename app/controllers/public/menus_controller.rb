@@ -62,8 +62,8 @@ class Public::MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
-      flash[:notice] = "メニューを編集しました！"
-      redirect_to menus_path
+      flash[:notice] = "メニュー名、説明が変更できました！"
+      redirect_to menu_path(@menu)
     else
       render 'edit'
     end
@@ -71,9 +71,12 @@ class Public::MenusController < ApplicationController
 
   def destroy
     @menu = Menu.find(params[:id])
-    @menu.destroy
-    flash[:notice] = "メニューを削除しました"
-    redirect_to menus_path
+    if @menu.destroy
+      flash[:notice] = "メニューを削除しました"
+      redirect_to menus_path
+    else
+      redirect_to request.referer
+    end
   end
 
   def diagnosis
