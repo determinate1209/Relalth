@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   }
   
   root to: 'public/homes#top'#top
-  get 'about' => 'public/homes#about'
  
   scope module: :public do
     get 'bookmark' => 'bookmarks#index'#お気に入り一覧
