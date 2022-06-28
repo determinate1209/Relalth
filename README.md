@@ -40,6 +40,6 @@
 - IDE：Cloud9
 
 ## 使用素材
-####EC design（デザイン）　
--NO IMAGEの素材 3
+#### EC design（デザイン）　
+- NO IMAGEの素材 3
 
